@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="YearlyFoundationTable"
+		table="yearly_foundation_fund"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="year"
+			column="year"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="yearlyFund"
+			column="yearly_fund"
+			type="big_decimal"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="category"
+			column="category"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

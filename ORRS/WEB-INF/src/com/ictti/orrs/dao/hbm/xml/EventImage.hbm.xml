@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="EventImage"
+		table="event_image" 
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="event_image_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="image"
+			column="image"
+			type="blob"
+			not-null="false"
+		/>
+		<!-- please tell Joe Hudson that the type 'LONGBLOB' could not be resolved.. defaulting to java.lang.String -->
+		<property
+			name="eventVideo"
+			column="event_video"
+			type="java.lang.String"
+			not-null="false"
+		/>
+		<property
+			name="eventImageName"
+			column="event_image_name"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="eventImageContentType"
+			column="event_image_content_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<many-to-one
+			name="event"
+			column="event_id"
+			class="Event"
+			not-null="true"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

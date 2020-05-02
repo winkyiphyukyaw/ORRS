@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="Event"
+		table="event" 
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="event_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="eventText"
+			column="event_text"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="eventDate"
+			column="event_date"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="eventStatus"
+			column="event_status"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="permitStatus"
+			column="permit_status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="storyEventStatus"
+			column="story_event_status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<many-to-one
+			name="admin"
+			column="admin_id"
+			class="Admin"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="shelter"
+			column="shelter_id"
+			class="Shelter"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="eventImages" inverse="true" lazy="false">
+			<key column="event_id"/>
+			<one-to-many class="EventImage"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

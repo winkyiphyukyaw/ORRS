@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="Donor"
+		table="donor"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="donor_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="donorName"
+			column="donor_name"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="donorNrc"
+			column="donor_nrc"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="donorPhNo"
+			column="donor_ph_no"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="donorAddress"
+			column="donor_address"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="donorEmail"
+			column="donor_email"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="amount"
+			column="amount"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="comment"
+			column="comment"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="creditCard"
+			column="credit_card"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="kindOfDonate"
+			column="kind_of_donate"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="noOfDonateTime"
+			column="no_of_donate_time"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+	
+
+		<set name="donorShelters" inverse="true" lazy="false">
+			<key column="donor_id"/>
+			<one-to-many class="DonorShelter"/>
+		</set>
+
+		<set name="donorCategories" inverse="true" lazy="false">
+			<key column="donor_id"/>
+			<one-to-many class="DonorCategory"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

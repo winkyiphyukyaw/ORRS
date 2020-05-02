@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<!-- Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="ShelterFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterForm">
+		</form-bean>
+		<form-bean name="RegFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterForm">
+		</form-bean>
+		<form-bean name="DonorFormBean"
+			type="com.ictti.orrs.presentation.form.ViewDonorListForm"></form-bean>
+		<form-bean name="OrphanFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterOrphanForm" />
+		<form-bean name="ShelterSearchAdopterFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterAdopterSearchForm" />
+
+		<form-bean name="ShelterEventFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterEventForm" />
+
+		<form-bean name="ShelterReportFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterReportForm" />
+		<form-bean name="UpdateFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterForm">
+		</form-bean>
+
+		<form-bean name="ShelterDonorFormBean"
+			type="com.ictti.orrs.presentation.form.ShelterDonorListForm">
+		</form-bean>
+		<form-bean name="ShelterDonorFormBean1"
+			type="com.ictti.orrs.presentation.form.ShelterDonorListForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- Action Mapping Definitions -->
+	<action-mappings>
+
+
+
+		<action path="/registerPathFirst" name="RegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoRegister" path="/WEB-INF/jsp/shelter_register.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+		<action path="/registerPath" name="RegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/shelter_register.jsp"
+			cancellable="true">
+			<forward name="gotoRegister" path="/WEB-INF/jsp/shelter_register.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+
+		</action>
+
+
+
+		<action path="/shelterloginPath" name="ShelterFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/shelter_login.jsp">
+			<!-- input="/WEB-INF/jsp/shelter_login.jsp"> -->
+			<forward name="gotoShelterHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+		<!-- Shelter HomePage -->
+		<action path="/shelterHomepagePath" name="ShelterFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoShelterHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+		<!--Shelter_ Orphan Insert and Update -->
+		<action path="/orphanInsertPath" name="OrphanFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoOrphan" path="/WEB-INF/jsp/shelter_orphan_insert.jsp" />
+		</action>
+
+		<action path="/shelterOrphanInsertPath" 
+				name="OrphanFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="true" 
+				input="/WEB-INF/jsp/shelter_orphan_insert.jsp"
+				cancellable="true">
+			<forward name="gotoOrphan" path="/WEB-INF/jsp/shelter_orphan_insert.jsp" />
+			<forward name="gotoShelterHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+		</action>
+
+		<action path="/pagingPath" name="OrphanFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoOrphan" path="/WEB-INF/jsp/shelter_orphan_insert.jsp" />
+		</action>
+
+		<action path="/shelterOrphanDetail" name="OrphanFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoDetail" path="/WEB-INF/jsp/shelter_orphan_detail.jsp" />
+		</action>
+
+		<action path="/shelterOrphanDetailPath" name="OrphanFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoDetail" path="/WEB-INF/jsp/shelter_orphan_detail.jsp" />
+			<forward name="gotoOrphan" path="/WEB-INF/jsp/shelter_orphan_insert.jsp" />
+		</action>
+
+		<action path="/shelterOrphanUpdate" name="OrphanFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoOrphan" path="/WEB-INF/jsp/shelter_orphan_insert.jsp" />
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/shelter_orphan_update.jsp" />
+		</action>
+
+		<action path="/shelterOrphanUpdatePath" name="OrphanFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="true" input="/WEB-INF/jsp/shelter_orphan_update.jsp"
+				cancellable="true">
+			<forward name="gotoOrphan" path="/WEB-INF/jsp/shelter_orphan_insert.jsp" />
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/shelter_orphan_update.jsp" />
+		</action>
+
+<!-- ///////////////////// -->
+
+
+		<action path="/shelterAdopterPath" name="ShelterSearchAdopterFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoShelterHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+			<forward name="gotoAdopterList" path="/WEB-INF/jsp/Shelter_View_AdopterList.jsp" />
+			<forward name="gotoDetail"
+				path="/WEB-INF/jsp/Shelter_View_AdopterDetailList.jsp" />
+		</action>
+
+		<action path="/shelterAdopterDetailPath" name="ShelterSearchAdopterFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoShelterHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+			<forward name="gotoAdopterList" path="/WEB-INF/jsp/Shelter_View_AdopterList.jsp" />
+			<forward name="gotoDetail"
+				path="/WEB-INF/jsp/Shelter_View_AdopterDetailList.jsp" />
+		</action>
+
+		<action path="/uploadEventPath1" name="ShelterEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+
+			<forward name="gotoUploadEvent" path="/WEB-INF/jsp/shelter_upload_event.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+
+		<action path="/uploadEventPath2" name="ShelterEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/shelter_upload_event.jsp"
+			cancellable="true">
+			<forward name="gotoUploadEvent" path="/WEB-INF/jsp/shelter_upload_event.jsp" />
+
+			<forward name="gotoShelterHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+		<action path="/viewEventPath" name="ShelterEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoEventView" path="/WEB-INF/jsp/shelter_view_event.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+			<forward name="gotoNoEvent" path="/WEB-INF/jsp/shelter_event_alert.jsp" />
+		</action>
+
+		<action path="/gotoEventUpload" name="ShelterEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoUploadEvent" path="/WEB-INF/jsp/shelter_upload_event.jsp" />
+		</action>
+
+		<action path="/updatePathFirst" name="UpdateFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/shelter_update.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+		</action>
+
+		<action path="/updatePath" name="UpdateFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/shelter_update.jsp" cancellable="true">
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/shelter_update.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/ShelterHome.jsp" />
+		</action>
+
+		<!-- Shelter Report -->
+		<action path="/viewYearlyReportPath" name="ShelterReportFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/shelter_yearly_report.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+		<action path="/viewMonthlyReportPath" name="ShelterReportFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/shelter_monthly_report.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+		<action path="/viewCategoryReportPath" name="ShelterReportFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/shelter_category_report.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+		<action path="/viewDailyReportPath" name="ShelterReportFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/shelter_daily_report.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+		<action path="/logoutPath" name="ShelterFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+		</action>
+
+
+		<action path="/shelterDonorPath" name="ShelterDonorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+
+			<forward name="gotoViewDonor" path="/WEB-INF/jsp/shelter_donor_list.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+
+		</action>
+
+		<action path="/donorSearchPath" name="ShelterDonorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+
+			<forward name="gotoViewDonor" path="/WEB-INF/jsp/shelter_donor_list.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+
+		</action>
+
+
+		<action path="/shelterDonorListDetailPath" name="ShelterDonorFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+
+			<forward name="gotoViewDonor" path="/WEB-INF/jsp/shelter_donor_list.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+			<forward name="gotoViewDonorDetail" path="/WEB-INF/jsp/shelter_donor_detail_list.jsp" />
+
+		</action>
+
+
+		<action path="/shelterDonorListDetailPath" name="ShelterDonorFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+
+			<forward name="gotoViewDonor" path="/WEB-INF/jsp/shelter_donor_list.jsp" />
+			<forward name="gotoShelterLogin" path="/WEB-INF/jsp/shelter_login.jsp" />
+			<forward name="gotoViewDonorDetail" path="/WEB-INF/jsp/shelter_donor_detail_list.jsp" />
+
+		</action>
+
+	</action-mappings>
+</struts-config>

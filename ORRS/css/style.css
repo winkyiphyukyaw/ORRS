@@ -1,0 +1,150 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: 'OpenSans-Regular';
+ }
+body a{
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+}
+
+
+ul{
+margin:0;
+padding:0;
+}
+@font-face {
+   font-family: 'OpenSans-Regular';
+   src: url(../fonts/OpenSans-Regular.ttf)format('truetype');
+}
+@font-face {
+   font-family: 'OpenSans-Light';
+   src: url(../fonts/OpenSans-Light.ttf)format('truetype');}
+
+@font-face {
+   font-family: 'Dosis-Regular';
+   src: url(../fonts/Dosis-Regular.ttf)format('truetype');
+}
+@font-face {
+   font-family: 'Dosis-Bold';
+   src: url(../fonts/Dosis-Bold.ttf)format('truetype');
+}
+@font-face {
+   font-family: 'Dosis-Medium';
+   src: url(../fonts/Dosis-Medium.ttf)format('truetype');
+}
+/*----*/
+.header{
+	background:#330000;
+
+}
+.header-top{
+	margin-bottom:0em;
+}
+.logo{
+	float:left;
+	width:70%;
+}
+
+.logo a h1{
+	color:#FFCC66;
+	 font-family: 'Dosis-Bold';
+font-size:3em;	
+	display:inline-block;
+	text-decoration:none;
+}
+.logo a h1 span{
+	color:#fff;
+	font-size:16px;
+	display:block;
+	font-family: 'Dosis-Regular';
+}
+.top-menu{
+	text-align:center;
+}
+.top-menu ul li{
+	display:inline-block;
+	margin-top:0em;
+}
+.top-menu ul li a{
+	font-family: 'Dosis-Regular';
+	font-size:1.2em;
+	display:block;
+	padding:10px 15px;
+	margin:0 1em;
+	color:#fff;
+	text-decoration:none;
+	margin-bottom:1em;
+}
+.top-menu ul li.active a,.top-menu ul li a:hover{
+	font-family: 'Dosis-Bold';
+	color:#FFCC66;
+	/* for icon and font  size font-size:1.4em;*/
+}
+span.menu{
+	display: none;
+}
+.glyphicon {
+  top: -8px;
+  display: block;
+}
+.glyphicon-asterisk,.glyphicon-flag{
+	color:#C7C7C7;
+  font-size:20px;
+}
+.glyphicon-icon {
+    position: relative;
+  top: 33px;
+  display: block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  z-index: 999;
+}
+
+.glyphicon-menu-right:before{
+	color:#333;
+	content: "\e258";
+}
+@media (max-width: 640px){
+span.menu{
+	display: block;
+  text-align: right;
+  padding-bottom: 0.5em;
+  cursor: pointer;	
+  position:relative;
+}
+.top-menu span.menu{
+	display:block;
+	color:#fff;
+	text-align: center;
+	font-size:1.1em;
+	font-weight:600;
+}
+.top-menu {
+	width:100;
+	float: none;
+}
+.top-menu  ul{
+	display:none;
+}
+.top-menu  ul li {
+	font-size: 12px;
+	display:inline-block;
+	width: 100%;
+	margin:0;
+}
+.top-menu ul li a {
+	padding:12px 0;
+	font-size: 1.2em;
+	width: 100%;
+	margin:0;
+}
+

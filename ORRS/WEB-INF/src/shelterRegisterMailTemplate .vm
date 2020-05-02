@@ -1,0 +1,33 @@
+Confirm Message for Register Profile.
+------------------------------------------------------------------------------------
+
+Dear $name,                                                    $today
+
+Your Register Profile have been changed.
+The data that you registered are as follow.
+
+
+
+Principal Name is $Principal.
+Login Name is $Login.
+Login Password is $password.
+Email Address is $Email.
+Phone Number is $Phone.
+Address is $Address.
+RegionState is $RegionState.
+City is $city;
+Breakfast Cost(MMK) is $BreakfastCost.
+Lunch Cost(MMK) is $LunchCost.
+Dinner Cost(MMK) is $DinnerCost.
+
+
+
+You are login here: http://localhost:8080/ORRS/shelter/ 
+
+
+
+
+
+-----------------------------------------------------------------------------------
+															Best Regards,
+																ORRS

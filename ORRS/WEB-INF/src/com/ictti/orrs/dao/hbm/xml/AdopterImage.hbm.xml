@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="AdopterImage"
+		table="adopter_image"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="adopter_image_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="image"
+			column="image"
+			type="blob"
+			not-null="false"
+		/>
+		<property
+			name="adopterImageName"
+			column="adopter_image_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="adopterImageContentType"
+			column="adopter_image_content_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<many-to-one
+			name="adopter"
+			column="adopter_id"
+			class="Adopter"
+			not-null="true"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

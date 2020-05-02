@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="Adopter"
+		table="adopter" lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="adopter_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="adopterName"
+			column="adopter_name"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="adopterEmail"
+			column="adopter_email"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="adopterPhNo"
+			column="adopter_ph_no"
+			type="string"
+			not-null="true"
+			length="15"
+		/>
+		<property
+			name="adopterAddress"
+			column="adopter_address"
+			type="string"
+			not-null="true"
+			length="100"
+		/>
+		<property
+			name="adopterNrc"
+			column="adopter_nrc"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="adopterIncome"
+			column="adopter_income"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="adopterOccupation"
+			column="adopter_occupation"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="adopterMaritalStatus"
+			column="adopter_marital_status"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="adopterGender"
+			column="adopter_gender"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="adopterNoOfChildren"
+			column="adopter_no_of_children"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="adopterDob"
+			column="adopter_dob"
+			type="date"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="adopterOrphanAge"
+			column="adopter_orphan_age"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="adopterOrphanGender"
+			column="adopter_orphan_gender"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="adoptedChildNo"
+			column="adopted_child_no"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="adopterDeleteStatus"
+			column="adopter_delete_status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="mailStatus"
+			column="mail_status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<many-to-one
+			name="shelter"
+			column="shelter_id"
+			class="Shelter"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="regionState"
+			column="region_state_id"
+			class="RegionState"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="city"
+			column="city_id"
+			class="City"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="orphans" inverse="true" lazy="false">
+			<key column="adopter_id"/>
+			<one-to-many class="Orphan"/>
+		</set>
+
+		<set name="adopterImages" inverse="true" lazy="false">
+			<key column="adopter_id"/>
+			<one-to-many class="AdopterImage"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

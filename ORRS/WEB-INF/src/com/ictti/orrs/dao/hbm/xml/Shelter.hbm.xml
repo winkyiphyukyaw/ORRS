@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="Shelter"
+		table="shelter"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="shelter_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="shelterLoginPassword"
+			column="shelter_login_password"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="shelterLoginName"
+			column="shelter_login_name"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="shelterName"
+			column="shelter_name"
+			type="string"
+			not-null="true"
+			length="100"
+		/>
+		<property
+			name="shelterLocation"
+			column="shelter_location"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="shelterPhNo"
+			column="shelter_ph_no"
+			type="string"
+			not-null="true"
+			length="15"
+		/>
+		<property
+			name="shelterEmail"
+			column="shelter_email"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="principalName"
+			column="principal_name"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="breakfastPrice"
+			column="breakfast_price"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="lunchPrice"
+			column="lunch_price"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="dinnerPrice"
+			column="dinner_price"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="shelterDeleteStatus"
+			column="shelter_delete_status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<many-to-one
+			name="city"
+			column="city_id"
+			class="City"
+			not-null="true"
+		>
+		</many-to-one>
+	
+
+		<set name="adopters" inverse="true" lazy="false">
+			<key column="shelter_id"/>
+			<one-to-many class="Adopter"/>
+		</set>
+
+		<set name="orphans" inverse="true" lazy="false">
+			<key column="shelter_id"/>
+			<one-to-many class="Orphan"/>
+		</set>
+
+		<set name="donorShelters" inverse="true" lazy="false">
+			<key column="shelter_id"/>
+			<one-to-many class="DonorShelter"/>
+		</set>
+
+		<set name="events" inverse="true" lazy="false">
+			<key column="shelter_id"/>
+			<one-to-many class="Event"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

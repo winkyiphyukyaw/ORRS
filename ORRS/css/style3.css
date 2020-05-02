@@ -1,0 +1,132 @@
+div {
+	float: left;
+}
+
+html[type=submit] {
+	background-color: pink;
+}
+
+#buttonwto {
+	background-color: #008080;
+	color: white;
+	border: 2px solid #086A87;
+	width: 100px;
+	/* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19); */
+	box-shadow: 0 4px 4px 0 gray;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+.mainbody {
+	float: left;
+	/* min-width: 76%; */
+	min-height: 77%;
+	background-color: #FFFFFF;
+	text-align: center;
+	height:80.5%;
+	width:78%;
+	overflow:scroll;
+	
+	background-color:#cfecec;
+	display: inline-block;
+	padding-left:10px;
+	
+	position: relative;
+}
+.maincontainer {
+	/*  padding-right: 15px;
+  padding-left: 15px; */
+	/*  margin-top:5px; */
+	/* min-height:440px; */
+	display: inline-block;
+	position: absolute;
+	background-color: green;
+	padding:10px;
+	border: 3px solid #086A87
+}
+.divbodyborder{position: absolute;display: inline-block;padding:10px;}
+.mainbanner {
+	float: left;
+	
+	width: 77%;
+	text-align: center;
+	padding:5px;
+	background-color:#25383c;
+	padding-left:10px;
+}
+table.body {
+	align: center;
+	/* //border: 2px solid #086A87; */
+	/* min-width:80%; */
+	/* width:auto; */
+	
+	
+	/* border: 1px solid #008080; */
+	
+}
+
+/* table.body {
+	align: center;
+	bordercolor:#086A87;
+	border:1px;
+} */
+
+table.body th {
+	/* margin: 5px;
+	padding: 5px; */
+	background-color:#008080;
+	text-align:center;
+	color:white;
+	/* width:100px; */
+	height:40px;
+	/* border: 2px solid #0000a0; */
+	padding-left:5px;
+	border: 3px solid #5c8a8a; 
+}
+table.body td{
+/* width:10%; */	
+/* width:100px; */
+height:40px;
+padding-left:5px;
+border: 3px solid #5c8a8a;
+/* border-left: 2px solid #008080; */
+}
+/* table.body tr,td,th  {
+	
+	height:40px;
+	width:auto;
+	border: 2px solid #008080;
+} */
+
+table.body tr:nth-child(even) {
+	background-color:  white;
+}
+
+body {
+	background-color: #25383c;
+	width: 100%;
+	height: 100%;
+}
+select {
+	height: 30px;
+	width: 180px;
+}
+input[type=text] {
+	height: 30px;
+	box-sizing: border-box;
+	width: 180px;
+}
+
+input[type=password] {
+	height: 30px;
+	width: 180px;
+	box-sizing: border-box;
+}
+
+

@@ -1,0 +1,171 @@
+div {
+	float: left;
+}
+
+.banner {
+	background:url(images/bnr3.jpg) no-repeat 0px 0px;
+	   height: 100%; 
+	   width:100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .content {
+	max-width: 900px;
+	margin: auto;
+	padding: 500px 0px 0px 700px;
+}
+
+.banner h2 {
+	color: #fff;
+	font-size: 7em;
+	font-family: 'Dosis-Bold';
+}
+
+.slider {
+	position: relative;
+	text-align: center;
+}
+
+.rslides {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.rslides h2 {
+	color: #fff;
+	font-size: 2em;
+	width: 70%;
+	margin: 0 auto;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.rslides h3 {
+	color: #fff;
+	font-size: 1.5em;
+	margin-top: 1em;
+	text-transform: uppercase;
+}
+
+.rslides li {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	display: none;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.rslides li:first-child {
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.callbacks_tabs a:after {
+	content: "\f111";
+	font-size: 0;
+	font-family: FontAwesome;
+	visibility: visible;
+	display: block;
+	height: 11px;
+	width: 11px;
+	display: inline-block;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	background: #fff;
+}
+
+.callbacks_here a:after {
+	border: 2px solid #FFF;
+	background: transparent;
+}
+
+.callbacks_tabs a {
+	visibility: hidden;
+}
+
+.callbacks_tabs li {
+	display: inline-block;
+}
+
+ul.callbacks_tabs.callbacks1_tabs {
+	position: absolute;
+	bottom: -100%;
+	z-index: 999;
+	left: 44%;
+}
+
+.pre-scrollable {
+	max-height: 340px;
+	overflow-y: scroll;
+}
+
+/* .container {
+	padding-right: 1px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	display: inline-block;
+} */
+
+.mainbody {
+	float: left;
+	min-width: 600px;
+	min-height: 580px;
+	/* background: #eee; */
+	background-color: #FFFFFF;
+	width: 75%;
+	height: 580px;
+	text-align: center;
+	overflow :scroll;
+	
+	display: inline-block;
+}
+
+table.body {
+	min-width: 800px;
+	align: center;
+}
+
+
+
+table.body tr:nth-child(even) {
+	background-color: #C0D7E1;
+}
+
+#outer {
+	width: 100%;
+	text-align: center;
+}
+
+#inner {
+	display: inline-block;
+}
+
+/* body {
+	background-color: #052645;
+} */
+
+.mainbanner {
+	float: left;
+	
+	width: 75%;
+	text-align: center;
+	padding:5px;
+	background-color:blue;
+	
+}
+
+#buttonwto {
+    background-color: white;
+    color: black;
+    border: 2px solid #086A87; 
+}

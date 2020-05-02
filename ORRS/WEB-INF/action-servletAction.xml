@@ -1,0 +1,423 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- <bean name="/xxxPath" class="com.ictti.frame.presentation.action.XxxAction"> 
+		<property name="myXxxService" ref="idXxxService" /> </bean> -->
+	
+	
+
+	<!-- Donate Shelter -->
+	<bean name="/donorShelterFirstPath" class="com.ictti.orrs.presentation.action.DonorRegAction">
+		<property name="myDonorRegService" ref="idDonorRegService" />
+	</bean>
+	<bean name="/donorRegPath" class="com.ictti.orrs.presentation.action.DonorRegAction">
+		<property name="myDonorRegService" ref="idDonorRegService" />
+	</bean>
+
+	<!-- Donate Foundation -->
+	<bean name="/donorDirectFirstPath"
+		class="com.ictti.orrs.presentation.action.DonorDirectRegAction">
+		<property name="myDonorRegService" ref="idDonorRegService" />
+	</bean>
+	<bean name="/donorDirectRegPath"
+		class="com.ictti.orrs.presentation.action.DonorDirectRegAction">
+		<property name="myDonorRegService" ref="idDonorRegService" />
+	</bean>
+
+	<!-- Giving Meal -->
+	<bean name="/givingMealFirstPath"
+		class="com.ictti.orrs.presentation.action.GivingMealRegAction">
+		<!-- <property name="myDonorRegService" ref="idDonorRegService" /> -->
+	</bean>
+	<bean name="/givingMealRegPath"
+		class="com.ictti.orrs.presentation.action.GivingMealRegAction">
+		<property name="myDonorRegService" ref="idDonorRegService" />
+	</bean>
+	<!-- Shelter -->
+	<bean name="/shelterPath"
+		class="com.ictti.orrs.presentation.action.SearchShelterAction">
+		<property name="mySearchService" ref="idSearchService" />
+	</bean>
+	<bean name="/shelterDetailPath"
+		class="com.ictti.orrs.presentation.action.SearchShelterAction">
+		<property name="mySearchService" ref="idSearchService" />
+		<property name="myDonorRegService" ref="idDonorRegService" />
+	</bean>
+	<!-- Annual_Report -->
+	<bean name="/annualReportPath" class="com.ictti.orrs.presentation.action.AnnualReportAction">
+		<property name="myAnnualReportService" ref="idAnnualReportService" />
+	</bean>
+
+	<bean name="/AnnualViewPath" class="com.ictti.orrs.presentation.action.AnnualReportAction">
+		<property name="myAnnualReportService" ref="idAnnualReportService" />
+	</bean>
+	
+	<bean name="/Welcome" class="com.ictti.orrs.presentation.action.StoryAction">
+ 	<property name="myStoryService" ref="idStoryService" />
+	</bean>
+	
+	<bean name="/userStoryPath" class="com.ictti.orrs.presentation.action.StoryAction">
+ 	<property name="myStoryService" ref="idStoryService" />
+	</bean>
+	<bean name="/EventPath"	class="com.ictti.orrs.presentation.action.EventAction">
+ 	<property name="myEventService" ref="idEventService" />
+	</bean>
+	
+	<bean name="/adopterFirstPath" class="com.ictti.orrs.presentation.action.AdopterRegistrationAction">
+		<property name="myAdoptService" ref="idAdoptService"/>
+	</bean>
+	<bean name="/adopterRegPath" class="com.ictti.orrs.presentation.action.AdopterRegistrationAction">
+		<property name="myAdoptService" ref="idAdoptService"/>
+	</bean>
+	<!-- Contact Page -->
+	<bean name="/ContactPath" class="com.ictti.orrs.presentation.action.ContactAction">
+		<!-- <property name="myAdoptService" ref="idAdoptService"/> -->
+	</bean>
+	<!-- About Page -->
+	<bean name="/AboutPath" class="com.ictti.orrs.presentation.action.AboutAction">
+		<!-- <property name="myAdoptService" ref="idAdoptService"/> -->
+	</bean>
+	<!--  Shelter Report  
+	<bean name="/viewReportPath" class="com.ictti.orrs.presentation.action.ShelterReportAction">
+		<property name="myShelterReportService" ref="idShelterReportService" />
+	</bean> -->
+	
+	
+	
+			<!-- for Shelter Page -->
+	<!-- login -->
+	<bean name="/shelterloginPath" class="com.ictti.orrs.presentation.action.ShelterLoginAction">
+	<property name="myShelterService" ref="idShelterService" />
+	</bean>
+	
+	<!-- registration -->
+	<bean name="/registerPathFirst"
+		class="com.ictti.orrs.presentation.action.ShelterRegistrationAction">
+		<property name="myShelterService" ref="idShelterService" />
+	</bean>
+	
+	<bean name="/registerPath"
+		class="com.ictti.orrs.presentation.action.ShelterRegistrationAction">
+		<property name="myShelterService" ref="idShelterService" />
+	</bean>
+	
+	<!-- Shelter HOmepage -->
+	
+	<bean name="/shelterHomepagePath"
+		class="com.ictti.orrs.presentation.action.ShelterHomeAction">
+		
+	</bean>
+	
+	
+	
+	<!-- Insert and update orphan -->	
+	<bean name="/orphanInsertPath" class="com.ictti.orrs.presentation.action.ShelterOrphanAction">
+		<property name="myOrphanService" ref="idOrphanService" />
+	</bean>
+	
+	<bean name="/shelterOrphanInsertPath" class="com.ictti.orrs.presentation.action.ShelterOrphanAction">
+		<property name="myOrphanService" ref="idOrphanService" />
+	</bean>
+	
+	<bean name="/pagingPath" class="com.ictti.orrs.presentation.action.ShelterOrphanAction">
+		<property name="myOrphanService" ref="idOrphanService" />
+	</bean>
+	
+	<bean name="/shelterOrphanDetail" class="com.ictti.orrs.presentation.action.ShelterOrphanAction">
+		<property name="myOrphanService" ref="idOrphanService" />
+	</bean>
+	
+	<bean name="/shelterOrphanDetailPath" class="com.ictti.orrs.presentation.action.ShelterOrphanAction">
+		<property name="myOrphanService" ref="idOrphanService" />
+	</bean>
+	
+	
+	<bean name="/shelterOrphanUpdate" class="com.ictti.orrs.presentation.action.ShelterOrphanAction">
+	<property name="myOrphanService" ref="idOrphanService"/>
+	</bean>
+	
+	<bean name="/shelterOrphanUpdatePath" class="com.ictti.orrs.presentation.action.ShelterOrphanUpdateAction">
+	<property name="myOrphanService" ref="idOrphanService"/>
+	</bean>
+	
+	<!-- <bean name="/shelterOrphanDelete" class="com.ictti.orrs.presentation.action.ShelterOrphanAction">
+	<property name="myOrphanService" ref="idOrphanService"/>
+	</bean> -->
+	
+	
+	<!-- View Adopter List -->
+	<bean name="/shelterAdopterPath" class="com.ictti.orrs.presentation.action.ShelterAdopterSearchAction">
+		<property name="mySearchService" ref="idAdopterSearchService" />
+	</bean>
+	<bean name="/shelterAdopterDetailPath" class="com.ictti.orrs.presentation.action.ShelterAdopterSearchAction">
+		<property name="mySearchService" ref="idAdopterSearchService" />
+	</bean>
+	
+	<!-- Upload Event -->
+	<bean name="/uploadEventPath1" class="com.ictti.orrs.presentation.action.ShelterEventAction">
+	<property name="myShelterService" ref="idShelterUploadEventService"/> 
+		
+	</bean>
+	 <bean name="/uploadEventPath2" class="com.ictti.orrs.presentation.action.ShelterEventAction">
+		<property name="myShelterService" ref="idShelterUploadEventService"/> 
+	</bean> 
+	<bean name="/gotoEventUpload" class="com.ictti.orrs.presentation.action.ShelterEventAction">
+		<!-- <property name="myShelterService" ref="idShelterUploadEventService"/> --> 
+	</bean>
+	  
+	
+	
+	<!-- View Event -->
+	<bean name="/viewEventPath" class="com.ictti.orrs.presentation.action.ShelterViewEventAction">
+	<property name="myShelterEventService" ref="idShelterEventService" />
+	</bean>
+	
+	
+	<!-- Update Profile -->
+	<bean name="/updatePathFirst" class="com.ictti.orrs.presentation.action.ShelterUpdateAction">
+	<property name="myShelterService" ref="idShelterService" />
+	</bean>
+	
+	<bean name="/updatePath" class="com.ictti.orrs.presentation.action.ShelterUpdateAction">
+	<property name="myShelterService" ref="idShelterService" />
+	</bean>
+	
+	<!-- Shelter Report  -->
+	<bean name="/viewYearlyReportPath" class="com.ictti.orrs.presentation.action.ShelterYearlyReportAction">
+		<property name="myShelterReportService" ref="idShelterReportService" />
+	</bean>
+	<bean name="/viewMonthlyReportPath" class="com.ictti.orrs.presentation.action.ShelterMonthlyReportAction">
+		<property name="myShelterReportService" ref="idShelterReportService" />
+	</bean>
+	<bean name="/viewCategoryReportPath" class="com.ictti.orrs.presentation.action.ShelterCategoryReportAction">
+		<property name="myShelterReportService" ref="idShelterReportService" />
+	</bean>
+	<bean name="/viewDailyReportPath" class="com.ictti.orrs.presentation.action.ShelterDailyReportAction">
+		<property name="myShelterReportService" ref="idShelterReportService" />
+	</bean>
+	
+	<!-- Shelter logout -->
+	<bean name="/logoutPath" class="com.ictti.orrs.presentation.action.LogoutAction">
+		
+	</bean>
+	
+	<!-- Shelter Donor  -->
+	<!-- Shelter Donor  -->
+	<bean name="/shelterDonorPath" class="com.ictti.orrs.presentation.action.ShelterDonorListAction">
+	<property name="myViewDonorListService" ref="idViewDonorListService" />
+	</bean>
+	
+	<bean name="/shelterDonorListDetailPath" class="com.ictti.orrs.presentation.action.ShelterDonorListAction">
+	<property name="myViewDonorListService" ref="idViewDonorListService" />
+	</bean>
+	
+	<bean name="/donorSearchPath" class="com.ictti.orrs.presentation.action.ShelterDonorListAction">
+	<property name="myViewDonorListService" ref="idViewDonorListService" />
+	</bean>
+	
+	
+	<!-- Admin -->
+	<!-- admin login -->
+	<bean name="/loginPath" class="com.ictti.orrs.presentation.action.AdminLoginAction">
+		<property name="myAdminService" ref="idAdminService" />
+	</bean>
+	
+	
+	
+	<!-- Admin View Report -->
+
+<bean name="/adminViewYearlyReportPath" class="com.ictti.orrs.presentation.action.AdminYearlyReportAction">
+		 <property name="myAdminReportService" ref="idAdminReportService" />
+	</bean>
+	<bean name="/adminViewMonthlyReportPath" class="com.ictti.orrs.presentation.action.AdminMonthlyReportAction">
+		 <property name="myAdminReportService" ref="idAdminReportService" />
+	</bean>
+	<bean name="/adminViewCategoryReportPath" class="com.ictti.orrs.presentation.action.AdminCategoryReportAction">
+		 <property name="myAdminReportService" ref="idAdminReportService" />
+	</bean>
+	<bean name="/adminViewDailyReportPath" class="com.ictti.orrs.presentation.action.AdminDailyReportAction">
+		 <property name="myAdminReportService" ref="idAdminReportService" />
+	</bean>
+	<bean name="/adminViewOutcomeReportPath" class="com.ictti.orrs.presentation.action.AnnualReportAction">
+		<property name="myAnnualReportService" ref="idAnnualReportService" />
+	</bean>
+	
+	
+	
+	
+	<!-- admin donor view -->
+	<bean name="/adminDonorPath" class="com.ictti.orrs.presentation.action.AdminDonorAction">
+		<property name="myAdminDonorService" ref="idAdminDonorService" />
+	</bean>
+	<bean name="/adminDonorDetailPath" class="com.ictti.orrs.presentation.action.AdminDonorAction">
+		<property name="myAdminDonorService" ref="idAdminDonorService" />
+	</bean>
+	
+	<!--Admin Add City -->
+	<bean name="/location" class="com.ictti.orrs.presentation.action.AdminLocationAction">
+	<property name="myLocationService" ref="idLocationService"/>
+	</bean>
+	
+	<bean name="/LocationDetailPath" class="com.ictti.orrs.presentation.action.AdminLocationAction">
+	<property name="myLocationService" ref="idLocationService"/>
+	</bean>
+	
+	<bean name="/LocationAdmin" class="com.ictti.orrs.presentation.action.AdminLocationAction">
+	<property name="myLocationService" ref="idLocationService"/>
+	</bean>
+	
+	<bean name="/LocationPagingPath" class="com.ictti.orrs.presentation.action.AdminLocationAction">
+	<property name="myLocationService" ref="idLocationService"/>
+	</bean>
+	
+	
+	
+	<bean name="/CityUpdatePath" class="com.ictti.orrs.presentation.action.AdminLocationAction">
+	<property name="myLocationService" ref="idLocationService"/>
+	</bean>
+	
+	<bean name="/CityUpdate" class="com.ictti.orrs.presentation.action.AdminLocationUpdateAction">
+	<property name="myLocationService" ref="idLocationService"/>
+	</bean>
+
+	
+	<!-- For Admin Financial Calculation -->
+	<bean name="/financialPath" class="com.ictti.orrs.presentation.action.FinancialAction">
+		  <property name="myFinancialService" ref="idFinancialService" />
+	</bean>
+	
+	<bean name="/FinancialCalPath" class="com.ictti.orrs.presentation.action.FinancialAction">
+		<property name="myFinancialService" ref="idFinancialService" />
+	</bean>
+	
+	<bean name="/FinancialpagingPath" class="com.ictti.orrs.presentation.action.FinancialAction">
+	<property name="myFinancialService" ref="idFinancialService"/>
+	</bean>
+	
+	
+	<bean name="/FinancialUpdatePath" class="com.ictti.orrs.presentation.action.FinancialUpdateAction">
+	<property name="myFinancialService" ref="idFinancialService"/>
+	</bean>
+	
+<bean name="/FinancialUpdate" class="com.ictti.orrs.presentation.action.FinancialUpdateAction">
+	<property name="myFinancialService" ref="idFinancialService"/>
+	</bean>	
+
+
+	
+	<!--Admin View Orphan  -->
+	
+	<bean name="/AdminViewOrphanPath" class="com.ictti.orrs.presentation.action.AdminViewOrphanAction">
+	<property name="myOrphanService" ref="idOrphanViewService" /></bean>
+	
+	<bean name="/orphanSearch" class="com.ictti.orrs.presentation.action.AdminViewOrphanAction">
+	<property name="myOrphanService" ref="idOrphanViewService" /></bean>
+	
+	<bean name="/AdminViewOrphanDetailPath" class="com.ictti.orrs.presentation.action.AdminViewOrphanAction">
+	    <property name="myOrphanService" ref="idOrphanViewService"></property>
+	</bean>
+	
+	<!--Correct  -->
+	<bean name="/AdminViewAdopterDetailPath" class="com.ictti.orrs.presentation.action.AdminViewOrphanAction">
+	    <property name="myOrphanService" ref="idOrphanViewService"></property>
+	</bean>
+	
+	
+	<!-- Up to date Admin View profile  -->
+<bean name="/adminViewPath" class="com.ictti.orrs.presentation.action.ViewAdminAction">
+ <property name="myAdminViewService" ref="idAdminViewService"></property> 
+</bean>
+
+<bean name="/adminViewProfileUpdatePath" class="com.ictti.orrs.presentation.action.ViewAdminAction">
+ <property name="myAdminViewService" ref="idAdminViewService"></property> 
+</bean>
+
+<!-- admin Upload and Event -->
+	<bean name="/adminEventPath1" class="com.ictti.orrs.presentation.action.AdminEventAction">
+	</bean>
+	<bean name="/adminViewEventPath" class="com.ictti.orrs.presentation.action.AdminEventAction">
+	</bean>
+	<bean name="/adminEventPath2" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <property name="myAdminEventService" ref="idAdminUploadEventService" /> 
+	</bean>
+	<bean name="/uploadDonePath" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <!-- <property name="myAdminEventService" ref="idAdminViewEventService" /> --> 
+	</bean>
+	<bean name="/adminViewEvent" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <property name="myAdminEventService" ref="idAdminViewEventService" /> 
+	</bean>
+	<bean name="/btnNext" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <property name="myAdminEventService" ref="idAdminViewEventService" /> 
+	</bean>
+	<bean name="/adminEditEvent" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <property name="myAdminEventService" ref="idAdminViewEventService" /> 
+	</bean>
+	<bean name="/adminEditConfirmPath" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <property name="myAdminEventService" ref="idAdminViewEventService" /> 
+	</bean>
+	<bean name="/adminUploadEvent" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <property name="myAdminEventService" ref="idAdminViewEventService" /> 
+	</bean>
+	<bean name="/uploadOkPath" class="com.ictti.orrs.presentation.action.AdminEventAction">
+		 <!-- <property name="myAdminEventService" ref="idAdminViewEventService" /> --> 
+	</bean>
+	<!-- 	admin adopter view -->
+	<bean name="/adopterViewDetailPath" class="com.ictti.orrs.presentation.action.AdminAdopterAction">
+	<property name="myAdopterViewService" ref="idAdopterViewService"/>
+	</bean>
+	<bean name="/adopterSearch" class="com.ictti.orrs.presentation.action.AdminAdopterAction">
+	<property name="myAdopterViewService" ref="idAdopterViewService"/>
+	</bean>
+	<bean name="/adopterViewPath" class="com.ictti.orrs.presentation.action.AdminAdopterAction">
+	<property name="myAdopterViewService" ref="idAdopterViewService"/>
+	</bean>
+	
+	<!-- Admin Category -->
+	<bean name="/categoryPathFirst"
+ 	class="com.ictti.orrs.presentation.action.AddCategoryAction">
+	<property name="myCategoryService" ref="idCategoryService" />
+	</bean>
+	
+	<bean name="/pagingCategoryPath"
+ 	class="com.ictti.orrs.presentation.action.AddCategoryAction">
+	<property name="myCategoryService" ref="idCategoryService" />
+	</bean>
+	
+	<bean name="/categoryPath"
+ 	class="com.ictti.orrs.presentation.action.AddCategoryAction">
+	<property name="myCategoryService" ref="idCategoryService" />
+	</bean>
+	<bean name="/updateCategoryPathFirst"
+ 	class="com.ictti.orrs.presentation.action.UpdateCategoryAction">
+	<property name="myCategoryService" ref="idCategoryService" />
+	</bean>
+	<bean name="/updateCategoryPath"
+ 	class="com.ictti.orrs.presentation.action.UpdateCategoryAction">
+	<property name="myCategoryService" ref="idCategoryService" /> 
+	</bean>
+
+	<!-- admin view shelter -->
+	<bean name="/adminViewShelterPath"
+		class="com.ictti.orrs.presentation.action.SearchShelterAction">
+		<property name="mySearchService" ref="idSearchService" />
+	</bean>
+	<bean name="/adminViewShelterDetailPath"
+		class="com.ictti.orrs.presentation.action.SearchShelterAction">
+		<property name="mySearchService" ref="idSearchService" />
+		<property name="myDonorRegService" ref="idDonorRegService" />
+	</bean>
+	
+	<bean name="/adminLogoutPath"
+		class="com.ictti.orrs.presentation.action.AdminLogoutAction">
+		<!-- <property name="mySearchService" ref="idSearchService" />
+		<property name="myDonorRegService" ref="idDonorRegService" /> -->
+	</bean>
+	
+	<bean name="/homepagePath"
+		class="com.ictti.orrs.presentation.action.AdminHomeAction">
+		<!-- <property name="mySearchService" ref="idSearchService" />
+		<property name="myDonorRegService" ref="idDonorRegService" /> -->
+	</bean>
+	
+</beans>

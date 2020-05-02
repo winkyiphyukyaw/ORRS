@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="AnnualReportTable"
+		table="annual_report_view"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="id"
+			type="string"
+			column="id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="year"
+			column="year"
+			type="string"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="month"
+			column="month"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="fund"
+			column="fund"
+			type="big_decimal"
+			not-null="false"
+			length="32"
+		/>
+		<property
+			name="cost"
+			column="cost"
+			type="java.lang.Double"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="balance"
+			column="balance"
+			type="java.lang.Double"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="category"
+			column="category"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

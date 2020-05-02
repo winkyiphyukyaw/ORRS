@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="RegionState"
+		table="region_state"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="region_state_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="name"
+			column="name"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+	
+
+		<set name="cities" inverse="true" lazy="false">
+			<key column="region_state_id"/>
+			<one-to-many class="City"/>
+		</set>
+
+		<set name="adopters" inverse="true" lazy="false">
+			<key column="region_state_id"/>
+			<one-to-many class="Adopter"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

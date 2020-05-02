@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="Orphan"
+		table="orphan"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="orphan_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="orphanName"
+			column="orphan_name"
+			type="string"
+			not-null="true"
+			length="30"
+		/>
+		<property
+			name="orphanAge"
+			column="orphan_age"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="orphanGender"
+			column="orphan_gender"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="orphanEdu"
+			column="orphan_edu"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="orphanReligion"
+			column="orphan_religion"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="orphanMedicalGrade"
+			column="orphan_medical_grade"
+			type="string"
+			not-null="true"
+			length="5"
+		/>
+		<property
+			name="adoptStatus"
+			column="adopt_status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="orphanDeleteStatus"
+			column="orphan_delete_status"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<many-to-one
+			name="shelter"
+			column="shelter_id"
+			class="Shelter"
+			not-null="true"
+		>
+		</many-to-one>
+		<many-to-one
+			name="adopter"
+			column="adopter_id"
+			class="Adopter"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="orphanImages" inverse="true" lazy="false">
+			<key column="orphan_id"/>
+			<one-to-many class="OrphanImage"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

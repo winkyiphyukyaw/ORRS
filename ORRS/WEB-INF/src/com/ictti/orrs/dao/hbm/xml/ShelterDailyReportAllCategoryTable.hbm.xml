@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="ShelterDailyReportAllCategoryTable"
+		table="shelter_daily_report_all_category_view"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="shelterId"
+			column="shelter_id"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="shelterName"
+			column="shelter_name"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="year"
+			column="year"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="month"
+			column="month"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="day"
+			column="day"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="donateDate"
+			column="donate_date"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="amount"
+			column="amount"
+			type="big_decimal"
+			not-null="false"
+			length="32"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

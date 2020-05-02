@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+	<formset>
+		<!-- Donate -->
+
+		<form name="DonorRegFormBean">
+
+			<!-- <field property="frmShelterName" depends="required"> <arg key="Shelter Name" 
+				resource="false" /> </field> -->
+			<field property="frmRegAmount" depends="required">
+				<arg key="Amount" resource="false" />
+			</field>
+			<field property="frmRegDonorCreditCard" depends="required,mask">
+				<arg key="Credit Card" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]{3}-[0-9]{10}$</var-value>
+					
+				</var>
+				
+			</field>
+			<field property="frmRegCreditCardType" depends="required"> 
+				<arg key="Credit Card Type" resource="false" /> 
+			</field> 
+			<field property="frmRegCardHolder" depends="required"> 
+				<arg key="Credit Card Holder" resource="false" />
+			</field> 
+			<field property="frmRegCardExpireDate" depends="required"> 
+				<arg key="Credit Card ExpireDate" resource="false" /> 
+			</field>
+
+			<field property="frmRegDonorName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="frmRegDonorNRC" depends="required,mask">
+				<arg key="NRC" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([1-9]|10|11|12|13|14)/[A-Za-z]{6,7}[(][N,A][)]\d{6}$</var-value>
+					<!-- <var-value>^\d{2}/[A-Za-z]{6}\([A-Z]{1}\)\d{6}$</var-value> -->
+				</var>
+
+			</field>
+
+			<field property="frmRegDonorPhone" depends="required,mask">
+				<arg key="Phone Number" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0]\d{1,2}-\d{5,11}$</var-value>
+				</var>
+			</field>
+			<field property="frmRegDonorEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+			<field property="frmRegDonorAddress" depends="required">
+				<arg key="Address" resource="false" />
+			</field>
+
+		</form>
+		<form name="AdopterFormBean">
+			<field property="frmAdopterName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+
+			<field property="frmAdopterEmail" depends="required,email">
+				<arg key="Email" resource="false" position="0" />
+			</field>
+			<field property="frmAdopterPhone" depends="required,mask">
+				<arg key="Phone.No" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0]\d{1,2}-\d{5,11}$</var-value>
+				</var>
+			</field>
+			<field property="frmAdopterNrc" depends="required">
+				<arg key="NRC" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([1-9]|10|11|12|13|14)/[a-z]{6,7}[(][N,A][)]\d{6}$</var-value>
+				</var>
+			</field>
+			<field property="frmAdopterAddress" depends="required">
+				<arg key="Address" resource="false" />
+			</field>
+			<field property="frmAdopterOccupation" depends="required">
+				<arg key="Occupation" resource="false" />
+			</field>
+			<field property="frmAdopterIncome" depends="required">
+				<arg key="Income" resource="false" />
+			</field>
+			<field property="frmAdopterGender" depends="required">
+				<arg key="Gender" resource="false" />
+			</field>
+			<field property="frmAdopterMaritalStatus" depends="required">
+				<arg key="Marital Status" resource="false" />
+			</field>
+
+
+
+			
+			<field property="frmAdopterDob" depends="required,mask">
+				<arg key="Date of Birth" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{4}-\d{2}-\d{2}$</var-value>
+				</var>
+			</field>
+			
+
+
+			<field property="frmAdopterChildNo" depends="required">
+				<arg key="Number of Children" resource="false" />
+			</field>
+			 <field property="frmOrphanGender" depends="required">
+				<arg key="Orphan's Gender" resource="false" />
+			</field> 
+			<!-- <field property="frmOrphanAge" depends="required">
+				<arg key="" resource="false" />
+			</field> -->
+			<field property="frmAdoptedChildNo" depends="required,integer">
+				<arg key="Number of Adopted Child" resource="false" />
+			</field>
+			<field property="frmFileUpload" depends="required">
+				<arg key="Family Form" resource="false" />
+			</field>
+
+
+		</form>
+
+		<form name="ShelterFormBean">
+			<field property="shelterLoginName" depends="required">
+				<arg key="Login Name" resource="false" />
+			</field>
+			<field property="shelterPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+
+
+			</field>
+
+		</form>
+
+		<!-- shelter event -->
+
+		<form name="ShelterEventFormBean">
+			<field property="eventText" depends="required">
+				<arg key="Text Box" resource="false" />
+			</field>
+			<field property="frmUploadFile" depends="required">
+				<arg key="Image" resource="false" />
+			</field>
+			<field property="frmEventStoryStatus" depends="required">
+				<arg key="Story/Event" resource="false" />
+
+			</field>
+
+		</form>
+		<!--shelter register -->
+		<form name="RegFormBean">
+			<field property="shelterRegPhone" depends="required,mask">
+				<arg key="Phone" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0]\d{1,2}-\d{5,11}$</var-value>
+				</var>
+			</field>
+			<field property="shelterRegAddress" depends="required">
+				<arg key="Address" resource="false" />
+			</field>
+			<field property="shelterRegName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<field property="shelterRegEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+			<field property="shelterPrincipalName" depends="required">
+				<arg key="Account Name" resource="false" />
+			</field>
+			<field property="shelterRegPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="shelterRegConfPassword" depends="required,maxlength,minlength">
+				<arg key="Confirm Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			
+			<field property="shelterRegLoginName" depends="required">
+				<arg key="Login Name" resource="false" />
+			</field>
+
+<field property="shelterRegBfCost" depends="required,mask,maxlength,minlength,integer">
+				<arg key="Breakfast Cost" resource="false" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+[0-9]+$</var-value>
+				</var>
+				
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>9</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			
+<field property="shelterRegLunCost" depends="required,mask,maxlength,minlength,integer">
+				<arg key="Lunch Cost" resource="false" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+[0-9]+$</var-value>
+				</var>
+				
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>9</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+	</field>
+			
+<field property="shelterRegDinCost" depends="required,mask,maxlength,minlength,integer">
+				<arg key="Dinner Cost" resource="false" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+[0-9]+$</var-value>
+				</var>
+				
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>9</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			
+		</form>
+
+
+		<!--shelter_ Orphan Insert and Update  -->
+		<form name="OrphanFormBean">
+			<field property="frmName" depends="required">
+				<arg key="Name" resource="false" />
+			</field>
+			<!-- <field property="frmAge" depends="required,mask">
+				<arg key="Age" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]+$</var-value>
+				</var>
+			</field> -->
+			<field property="frmGenderType" depends="required">
+				<arg key="Gender" resource="false" />
+			</field>
+
+			<!-- <field property="frmAdoptType" depends="required">
+				<arg key="Adopt" resource="false" />
+			</field> -->
+		</form>
+		<form name="UpdateFormBean">
+			 <field property="shelterRegName" depends="required">
+				<arg key="Shelter Name" resource="false" />
+			</field>
+			<field property="shelterPrincipalName" depends="required">
+				<arg key="Principal Name" resource="false" />
+			</field>
+			<field property="shelterRegPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="shelterRegConfPassword" depends="required,maxlength,minlength">
+				<arg key="Confirm Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			<field property="shelterRegBfCost" depends="required,mask,maxlength,minlength,integer">
+				<arg key="Breakfast Cost" resource="false" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+[0-9]+$</var-value>
+				</var>
+				
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>9</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			
+<field property="shelterRegLunCost" depends="required,mask,maxlength,minlength,integer">
+				<arg key="Lunch Cost" resource="false" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+[0-9]+$</var-value>
+				</var>
+				
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>9</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+	</field>
+			
+<field property="shelterRegDinCost" depends="required,mask,maxlength,minlength,integer">
+				<arg key="Dinner Cost" resource="false" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+[0-9]+$</var-value>
+				</var>
+				
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>9</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			<field property="shelterRegAddress" depends="required">
+				<arg key="Address" resource="false" />
+			</field>
+			
+			<field property="shelterRegPhone" depends="required,mask">
+				<arg key="Phone" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0]\d{1,2}-\d{5,11}$</var-value>
+				</var>
+			</field>
+			<field property="shelterRegEmail" depends="required,email">
+				<arg key="Email" resource="false" />
+			</field>
+		</form>
+
+		
+		<!--Admin Location  -->
+		<form name="AdminCityFormBean">
+		<field property="frmCityName" depends="required">
+				<arg key="City name" resource="false"/>
+		</field>
+		</form>
+		
+		
+		<!-- For Admin Financial Calculation -->
+		<form name="FinancialFormBean">
+			<field property="firstDate" depends="required,mask">
+				<arg position="0" key="label.FinancialForm.firstDate"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{4}-\d{2}-\d{2}$</var-value>
+				</var>
+			</field>
+	
+		
+		<field property="frmOutcome" depends="required,mask,maxlength,minlength,integer">
+				<arg key="Outcome" resource="false" position="0"/>
+				<arg key="${var:maxlength}" resource="false" position="1" name="maxlength"/>
+				<arg key="${var:minlength}" resource="false" position="1" name="minlength"/>
+				
+				<!-- <var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+([0-9]+$)|(.0)+$</var-value>
+				</var> -->
+				
+				
+				 <var>
+					<var-name>mask</var-name>
+					<var-value>^[1-9]+[0-9]+$</var-value>
+				</var>
+				
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+			</field>
+			
+	
+			</form>
+		<!-- Admin View Profile -->
+		
+		<form name="ViewAdminFormBean">
+			<field property="adminLoginName" depends="required">
+				<arg key="Name" resource="false"/>
+			</field>
+			
+			<field property="adminPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			
+     </form>
+		
+		<!-- For Admin Page -->
+		 <form name="AdminEventFormBean">
+			<field property="eventText" depends="required">
+				<arg key="Text Box" resource="false" />
+			</field>
+			<field property="frmUploadFile" depends="required">
+				<arg key="Image" resource="false" />
+			</field>
+			<field property="frmEventStoryStatus" depends="required">
+				<arg key="Story/Event" resource="false" />
+
+			</field>
+			
+		</form> 
+		<form name="AdminEventFormBean1">
+		
+		
+			<field property="frmSearchDate1" depends="mask">
+				<arg position="0" key="label.AdminEventForm.frmSearchDate1"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{4}-\d{2}-\d{2}$</var-value>
+				</var>
+			</field>
+			<field property="frmSearchDate2" depends="mask">
+				<arg position="0" key="label.AdminEventForm.frmSearchDate2"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^\d{4}-\d{2}-\d{2}$</var-value>
+				</var>
+			</field>
+		</form>
+		
+		
+		<!--Admin Category  -->
+		 <form name="AdFormBean">
+			<field property="categoryName" depends="required">
+				<arg key="Category" resource="false"/>
+			</field>
+     </form>
+     
+      <form name="AdminUpdateFormBean">
+			<field property="categoryName" depends="required">
+				<arg key="Category" resource="false"/>
+			</field>
+     </form>
+     
+     <!--Admin Login  -->
+		 <form name="AdminFormBean">
+			<field property="adminLoginName" depends="required">
+				<arg key="Login Name" resource="false"/>
+			</field>
+			
+			<field property="adminPassword" depends="required,maxlength,minlength">
+				<arg key="Password" resource="false" position="0" />
+				<arg key="${var:maxlength}" resource="false" position="1"
+					name="maxlength" />
+				<arg key="${var:minlength}" resource="false" position="1"
+					name="minlength" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>8</var-value>
+				</var>
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+			</field>
+			
+     </form>
+	</formset>
+	
+	
+			
+			
+
+	
+</form-validation>

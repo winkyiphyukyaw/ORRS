@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- <bean id="idXxxDao" class="com.ictti.frame.dao.XxxDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean> -->
+	<bean id="idAdminDao" class="com.ictti.orrs.dao.AdminDaoImpl">
+<property name="sessionFactory" ref="sessionFactory"/>	</bean>
+	
+	<bean id="idShelterDao" class="com.ictti.orrs.dao.ShelterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="idDonorDao" class="com.ictti.orrs.dao.DonorDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idCategoryDao" class="com.ictti.orrs.dao.CategoryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idDonorShelterDao" class="com.ictti.orrs.dao.DonorShelterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idDonorCategoryDao" class="com.ictti.orrs.dao.DonorCategoryDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="idRegionStateDao" class="com.ictti.orrs.dao.RegionStateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idCityDao" class="com.ictti.orrs.dao.CityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idAnnualReportTableDao" class="com.ictti.orrs.dao.AnnualReportTableDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idEventDao" class="com.ictti.orrs.dao.EventDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idEventImageDao" class="com.ictti.orrs.dao.EventImageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	 <bean id="idAdoptDao" class="com.ictti.orrs.dao.AdopterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+	  <bean id="idAdopterImageDao" class="com.ictti.orrs.dao.AdopterImageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		</bean> 
+		<bean id="idShelterReportTableDao" class="com.ictti.orrs.dao.ShelterReportTableDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="idYearlyFoundationDao" class="com.ictti.orrs.dao.YearlyFoundationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="idAllYearTableDao" class="com.ictti.orrs.dao.AllYearTableDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		<bean id="idYearlyShelterDao" class="com.ictti.orrs.dao.YearlyShelterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<!-- Insert Update Orphan -->
+	<bean id="idOrphanDao" class="com.ictti.orrs.dao.OrphanDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="idOrphanImageDao" class="com.ictti.orrs.dao.OrphanImageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- View Adopter List -->
+	<bean id="idAdopterDao" class="com.ictti.orrs.dao.AdopterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- Admin View Report  -->
+	<bean id="idAdminReportDao" class="com.ictti.orrs.dao.AdminReportTableDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- Admin Financial Calculation -->
+	<bean id="idFinancialCalculateDao" class="com.ictti.orrs.dao.FinancialCalculateDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- DataSource definition -->
+	<bean id="myDataSource" 
+	class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+
+	<bean id="dbConf" 
+	class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg>
+			<value>database.properties</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="databaseConfPostProcessor"
+	class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<ref bean="dbConf" />
+		</property>
+	</bean>
+
+	<!--	//Transaction Manager	-->
+	<bean id="transactionManager"
+	class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--	sessionFactory definition -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="mappingResources">
+			<list>
+				<!-- <value>com/ictti/frame/dao/hbm/xml/IcttiCourse.hbm.xml</value>
+				<value>com/ictti/frame/dao/hbm/xml/IcttiStudent.hbm.xml</value> -->
+				
+				<value>com/ictti/orrs/dao/hbm/xml/Admin.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/Adopter.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/AdopterImage.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/Category.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/City.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/Donor.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/DonorCategory.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/DonorShelter.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/Event.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/EventImage.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/FinancialCalculate.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/Orphan.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/OrphanImage.hbm.xml</value>
+				
+				<value>com/ictti/orrs/dao/hbm/xml/RegionState.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/Shelter.hbm.xml</value>
+				
+				
+				<value>com/ictti/orrs/dao/hbm/xml/AnnualReportTable.hbm.xml</value>
+				
+				<value>com/ictti/orrs/dao/hbm/xml/YearlyFoundationTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/YearlyShelterTable.hbm.xml</value>
+				
+				<value>com/ictti/orrs/dao/hbm/xml/AllYearTable.hbm.xml</value>
+				
+				<value>com/ictti/orrs/dao/hbm/xml/AdminYearlyReportTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/AdminMonthlyReportTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/AdminYearlyReportAllCategoryTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/AdminMonthlyReportAllCategoryTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/AdminDailyReportTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/AdminDailyReportAllCategoryTable.hbm.xml</value>
+				
+				<value>com/ictti/orrs/dao/hbm/xml/ShelterYearlyReportTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/ShelterMonthlyReportTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/ShelterYearlyReportAllCategoryTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/ShelterMonthlyReportAllCategoryTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/ShelterDailyReportTable.hbm.xml</value>
+				<value>com/ictti/orrs/dao/hbm/xml/ShelterDailyReportAllCategoryTable.hbm.xml</value>
+				
+			
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLInnoDBDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

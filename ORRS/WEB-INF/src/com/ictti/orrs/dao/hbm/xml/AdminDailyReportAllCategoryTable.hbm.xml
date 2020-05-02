@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="AdminDailyReportAllCategoryTable"
+		table="admin_daily_report_all_category_view"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="year"
+			column="year"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="month"
+			column="month"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="day"
+			column="day"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="donateDate"
+			column="donate_date"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="amount"
+			column="amount"
+			type="big_decimal"
+			not-null="false"
+			length="32"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

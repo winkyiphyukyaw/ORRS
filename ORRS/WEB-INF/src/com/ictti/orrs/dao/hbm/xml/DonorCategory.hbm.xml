@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.ictti.orrs.business.entity">
+	<class
+		name="DonorCategory"
+		table="donor_category"
+		lazy="false"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="id"
+			type="integer"
+			column="donor_category_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="donateDate"
+			column="donate_date"
+			type="date"
+			not-null="false"
+			length="10"
+		/>
+		<many-to-one
+			name="category"
+			column="category_id"
+			class="Category"
+			not-null="true"
+		>
+		</many-to-one>
+		<many-to-one
+			name="donor"
+			column="donor_id"
+			class="Donor"
+			not-null="true"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

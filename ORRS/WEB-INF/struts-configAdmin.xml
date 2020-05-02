@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<!-- Form Bean Definitions -->
+	<form-beans>
+
+		<form-bean name="AdminFormBean" type="com.ictti.orrs.presentation.form.AdminForm" />
+		<form-bean name="AdminEventFormBean" type="com.ictti.orrs.presentation.form.AdminEventForm"/>
+		<form-bean name="AdminLocationFormBean" type="com.ictti.orrs.presentation.form.AdminLocationForm"/>
+		<form-bean name="AdminCityFormBean" type="com.ictti.orrs.presentation.form.AdminLocationForm"/>
+		<form-bean name="FinancialFormBean" type="com.ictti.orrs.presentation.form.FinancialForm"/>
+		<form-bean name="AdminViewOrphanFormBean" type="com.ictti.orrs.presentation.form.AdminViewOrphanForm"></form-bean>
+		<form-bean name="ViewAdminFormBean" type="com.ictti.orrs.presentation.form.ViewAdminForm"></form-bean>
+		 <form-bean name="AdopterViewFormBean" type="com.ictti.orrs.presentation.form.AdminAdopterForm"></form-bean>
+		<!-- Admin View Report -->
+		<form-bean name="AdminReportFormBean" type="com.ictti.orrs.presentation.form.AdminReportForm"/>		
+		<form-bean name="AdminDonorFormBean" type="com.ictti.orrs.presentation.form.AdminDonorForm" />
+		<!-- Admin Event -->
+		<form-bean name="AdminEventFormBean" type="com.ictti.orrs.presentation.form.AdminEventForm"/>
+		<form-bean name="AdminEventFormBean1" type="com.ictti.orrs.presentation.form.AdminEventForm"/>
+		
+		<!--Admin Category  -->
+		<form-bean name="AdFormBean" type="com.ictti.orrs.presentation.form.AddCategoryForm"/>  
+ 		<form-bean name="AdminUpdateFormBean" type="com.ictti.orrs.presentation.form.AddCategoryForm"/> 
+ 		<!-- admin view shelter -->
+		<form-bean name="DonorRegFormBean" type="com.ictti.orrs.presentation.form.DonorRegForm"/>
+	</form-beans>
+
+	<!-- Action Mapping Definitions -->
+	<action-mappings>
+		<!-- <action path="/xxxPath" name="XxxFormBean" type="org.springframework.web.struts.DelegatingActionProxy" 
+			scope="session" validate="true" input="/WEB-INF/jsp/xxxx.jsp"> <forward name="success1" 
+			path="/WEB-INF/jsp/yyyy.jsp" /> <forward name="sucess" path="/WEB-INF/jsp/zzzz.jsp"> 
+			</forward> </action> -->
+		<!-- <action path="/Shelter" name="ShelterFormBean"> <forward name="gotoShelterLogin" 
+			path="/WEB-INF/jsp/shelter_login.jsp" /> </action> -->
+			
+		<!-- /adminLoginPath -->
+		<action path="/loginPath" 
+				name="AdminFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+				validate="true" input="/WEB-INF/jsp/admin_login.jsp">
+
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<!-- Upload Event -->
+		<action path="/adminEventPath1" name="AdminEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+
+			<forward name="gotoEvent" path="/WEB-INF/jsp/admin_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+	<!-- Admin View Report -->
+		
+		<action path="/adminViewYearlyReportPath" 
+				name ="AdminReportFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+				validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/admin_yearly_report.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		<action path="/adminViewMonthlyReportPath" 
+				name ="AdminReportFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+				validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/admin_monthly_report.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		<action path="/adminViewCategoryReportPath" 
+				name ="AdminReportFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+				validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/admin_category_report.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+
+		<action path="/adminViewDailyReportPath" 
+				name ="AdminReportFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+				validate="false">
+			<forward name="gotoReport" path="/WEB-INF/jsp/admin_daily_report.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+
+ 	<action path="/adminViewOutcomeReportPath" 
+				name="AnnualReportFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" >
+			<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp" />
+			<forward name="gotoAnnualReport" path="/WEB-INF/jsp/admin_outcome_report.jsp" />
+		</action>
+
+
+
+		<!-- Admin Donor View -->
+		<action path="/adminDonorPath" name="AdminDonorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+
+			<forward name="gotoViewDonor" path="/WEB-INF/jsp/admin_donor_list.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+
+		</action>
+
+
+		<action path="/adminDonorDetailPath" name="AdminDonorFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoViewDonor" path="/WEB-INF/jsp/admin_donor_list.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			<forward name="gotoViewDonorDetail" path="/WEB-INF/jsp/admin_donor_detail_list.jsp" />
+		</action>
+		
+		<!--Admin Add New City -->
+		<action path="/location" 
+				name="AdminLocationFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false">
+			<forward name="gotoLocation" path="/WEB-INF/jsp/admin_location.jsp"/>
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/LocationDetailPath" 
+				name="AdminCityFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false">
+			<forward name="gotoDetail" path="/WEB-INF/jsp/admin_location_detail.jsp"/>
+			<forward name="gotoLocation" path="/WEB-INF/jsp/admin_location.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/LocationAdmin" 
+				name="AdminCityFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="true"
+				input="/WEB-INF/jsp/admin_location_detail.jsp"
+				cancellable="true">
+			<forward name="gotoDetail" path="/WEB-INF/jsp/admin_location_detail.jsp"/>
+			<forward name="gotoLocation" path="/WEB-INF/jsp/admin_location.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/LocationPagingPath" 
+				name="AdminLocationFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false">
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoLocation" path="/WEB-INF/jsp/admin_location.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+			
+		<action path="/CityUpdatePath" 
+				name="AdminCityFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false">
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/admin_location_update.jsp"/>
+			<forward name="gotoLocation" path="/WEB-INF/jsp/admin_location.jsp"/>
+			<forward name="gotoDetail" path="/WEB-INF/jsp/admin_location_detail.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/CityUpdate" 
+				name="AdminCityFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="true"
+				input="/WEB-INF/jsp/admin_location_update.jsp"
+				cancellable="true">
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/admin_location_update.jsp"/>
+			<forward name="gotoLocation" path="/WEB-INF/jsp/admin_location.jsp"/>
+			<forward name="gotoDetail" path="/WEB-INF/jsp/admin_location_detail.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<!-- //For Admin Financial -->
+		<action	path="/financialPath" 
+				name="FinancialFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false">
+			<forward name="gotoFinancial" path="/WEB-INF/jsp/Admin_Financial_Calculate.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/student_login_000.jsp" />
+		</action>
+		<action	path="/FinancialCalPath" 
+				name="FinancialFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="true"
+				input="/WEB-INF/jsp/Admin_Financial_Calculate.jsp"
+				cancellable="true"
+				>
+			<forward name="gotoFinancial" path="/WEB-INF/jsp/Admin_Financial_Calculate.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+
+		</action>
+		
+		<action path="/FinancialpagingPath" 
+				name="FinancialFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false"
+				>
+			<forward name="gotoFinancial" path="/WEB-INF/jsp/Admin_Financial_Calculate.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		<action path="/FinancialUpdatePath" 
+				name="FinancialFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false">
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/Admin_Financial_Update.jsp"/>
+			<forward name="gotoFinancial" path="/WEB-INF/jsp/Admin_Financial_Calculate.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />	
+		</action>	
+		<action path="/FinancialUpdate" 
+				name="FinancialFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="true"
+				input="/WEB-INF/jsp/Admin_Financial_Update.jsp"
+				cancellable="true">
+			<forward name="gotoUpdate" path="/WEB-INF/jsp/Admin_Financial_Update.jsp"/>
+			<forward name="gotoFinancial" path="/WEB-INF/jsp/Admin_Financial_Calculate.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+
+
+		<!--Admin View Orphan  -->
+		
+		<action path="/AdminViewOrphanPath" 
+					name="AdminViewOrphanFormBean"
+					type="org.springframework.web.struts.DelegatingActionProxy"
+					scope="session"
+					validate="false">
+				<forward name="gotoViewOrphan"
+					path="/WEB-INF/jsp/admin_view_orphan.jsp"/>
+					<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+					<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+					<forward name="gotoSearch" path="/WEB-INF/jsp/admin_view_orphan.jsp"/>
+			
+			</action>
+			
+			<action path="/orphanSearch" 
+					name="AdminViewOrphanFormBean"
+					type="org.springframework.web.struts.DelegatingActionProxy"
+					scope="session"
+					validate="false">
+				<forward name="gotoViewOrphan"
+					path="/WEB-INF/jsp/admin_view_orphan.jsp"/>
+					<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+					<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+					<forward name="gotoSearch" path="/WEB-INF/jsp/admin_view_orphan.jsp"/>
+			
+			</action>
+			
+				
+			<action path="/AdminViewOrphanDetailPath" 
+					name="AdminViewOrphanFormBean"
+					type="org.springframework.web.struts.DelegatingActionProxy"
+					scope="session"
+					validate="false">
+				<forward name="gotoViewOrphanDetail" path="/WEB-INF/jsp/admin_view_orphan_detail.jsp"/>
+				<forward name="gotoViewOrphan" path="/WEB-INF/jsp/admin_view_orphan.jsp"/>
+				<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp"/>
+				<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			
+			</action>
+			
+			
+			
+			<action path="/AdminViewAdopterDetailPath" 
+					name="AdminViewOrphanFormBean"
+					type="org.springframework.web.struts.DelegatingActionProxy"
+					scope="session"
+					validate="false">
+				<forward name="gotoViewAdopterDetail" path="/WEB-INF/jsp/admin_view_adopter_detail.jsp"/>
+				<forward name="gotoViewOrphanDetail" path="/WEB-INF/jsp/admin_view_orphan_detail.jsp"/>
+				<forward name="gotoViewOrphan" path="/WEB-INF/jsp/admin_view_orphan.jsp"/>
+				<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />				
+			</action>
+
+			
+			<!-- Up to date Admin view profile -->
+		
+		<action path="/adminViewPath" 
+			name="ViewAdminFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			
+			<forward name="gotoViewAdminUpdate" path="/WEB-INF/jsp/admin_view_profile_update.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp"/>
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp"/>
+		</action>
+		<action path="/adminViewProfileUpdatePath" 
+			name="ViewAdminFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/admin_view_profile_update.jsp" cancellable="true">
+			
+			<forward name="gotoViewAdminUpdate" path="/WEB-INF/jsp/admin_view_profile_update.jsp"/>
+			<forward name="gotoViewAdmin" path="/WEB-INF/jsp/admin_view_profile.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp"/>
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp"/>
+		</action>
+		
+		
+		
+		<!-- Upload Event -->
+		<action path="/adminEventPath1" name="AdminEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+				
+			<forward name="gotoEvent" path="/WEB-INF/jsp/admin_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+		</action>
+		
+		<action path="/adminEventPath2" name="AdminEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/admin_event.jsp" cancellable="true"> 
+
+			<forward name="gotoEvent" path="/WEB-INF/jsp/admin_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<!-- <forward name="gotoUploadDone" path="/WEB-INF/jsp/admin_upload_done.jsp"/> -->
+		</action>
+		<!-- <action path="/uploadDonePath" name="AdminEventFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoEvent" path="/WEB-INF/jsp/admin_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			
+			</action> -->
+		
+		<action path="/adminViewEventPath" name="AdminEventFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false"> 
+
+			<forward name="gotoViewEvent" path="/WEB-INF/jsp/admin_view_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+		</action>
+		<action path="/adminViewEvent" name="AdminEventFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/admin_view_event.jsp" cancellable="true"> 
+			<forward name="gotoView" path="/WEB-INF/jsp/admin_viewEditUpload_event.jsp"/>
+			<forward name="gotoViewEvent" path="/WEB-INF/jsp/admin_view_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoNoEvent" path="/WEB-INF/jsp/admin_event_alert.jsp" />
+		</action>
+		
+		<action path="/btnNext" name="AdminEventFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoView" path="/WEB-INF/jsp/admin_viewEditUpload_event.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			</action>
+		
+		<action path="/adminEditEvent" name="AdminEventFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoEdit" path="/WEB-INF/jsp/admin_event_edit.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			</action>
+			
+		<action path="/adminEditConfirmPath" name="AdminEventFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/admin_event_edit.jsp">
+			<forward name="gotoEdit" path="/WEB-INF/jsp/admin_event_edit.jsp"/>
+			<forward name="gotoView" path="/WEB-INF/jsp/admin_viewEditUpload_event.jsp"/>
+			<forward name="gotoEvent" path="/WEB-INF/jsp/admin_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			</action>
+			
+		<action path="/adminUploadEvent" name="AdminEventFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoUpload" path="/WEB-INF/jsp/admin_event_upload.jsp"/>
+			<forward name="gotoEvent" path="/WEB-INF/jsp/admin_event.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			<forward name="gotoEdit" path="/WEB-INF/jsp/admin_event_edit.jsp"/>
+			<forward name="gotoView" path="/WEB-INF/jsp/admin_viewEditUpload_event.jsp"/>
+			</action>
+			
+		<!-- <action path="/uploadOkPath" name="AdminEventFormBean1"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoUpload" path="/WEB-INF/jsp/admin_event_upload.jsp"/>
+			<forward name="gotoView" path="/WEB-INF/jsp/admin_viewEditUpload_event.jsp"/>
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			</action> -->
+			
+			
+			<!-- Admin Adopter View -->
+			<action path="/adopterViewPath" name="AdopterViewFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" >
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoAdopterView" path="/WEB-INF/jsp/admin_adopter_view.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/adopterSearch" name="AdopterViewFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" >
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoAdopterView" path="/WEB-INF/jsp/admin_adopter_view.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+	
+	
+		<action path="/adopterViewDetailPath" 
+				name="AdopterViewFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" >
+			<forward name="gotoAdopterViewDetail" path="/WEB-INF/jsp/admin_adopter_view_detail.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoAdopterView" path="/WEB-INF/jsp/admin_adopter_view.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+			</action>
+			
+			<!--Admin Category  -->
+			<action path="/categoryPathFirst" 
+		name="AdFormBean" 
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="false">
+		<forward name="gotoCategory" path="/WEB-INF/jsp/admin_category.jsp"/>
+		<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/pagingCategoryPath" 
+		name="AdFormBean" 
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="false">
+		<forward name="gotoCategory" path="/WEB-INF/jsp/admin_category.jsp"/>
+		<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/categoryPath" 
+		name="AdFormBean" 
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="true"
+		input="/WEB-INF/jsp/admin_category.jsp" >
+		<forward name="gotoCategory" path="/WEB-INF/jsp/admin_category.jsp"/>
+		<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/updateCategoryPathFirst" 
+		name="AdminUpdateFormBean" 
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="false">
+		<forward name="gotoUpdateCategory" path="/WEB-INF/jsp/admin_update_category.jsp"/>
+		<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		
+		<action path="/updateCategoryPath" 
+		name="AdminUpdateFormBean" 
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="session" validate="true"
+		input="/WEB-INF/jsp/admin_update_category.jsp" cancellable="true">
+		<forward name="gotoUpdateCategory" path="/WEB-INF/jsp/admin_update_category.jsp"/>
+		<forward name="gotoCategory" path="/WEB-INF/jsp/admin_category.jsp"/>
+		<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<!-- admin view shelter -->
+		<action path="/adminViewShelterPath" 
+				name ="DonorRegFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+				validate="false">
+			<forward name="gotoShelter" path="/WEB-INF/jsp/admin_view_shelter.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		<action 
+         		path="/adminViewShelterDetailPath"
+         		name="DonorRegFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				scope="session" 
+				validate="false">
+				<forward name="gotoShelterDetail" path="/WEB-INF/jsp/admin_shelter_search_detail.jsp" />		
+				<forward name="gotoShelter" path="/WEB-INF/jsp/admin_view_shelter.jsp" />	
+				<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		<action path="/adminLogoutPath" name="AdminFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false">
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+		
+		
+		<action path="/homepagePath" 
+				name="AdminFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+				validate="false" >
+
+			<forward name="gotoHome" path="/WEB-INF/jsp/AdminHome.jsp" />
+			<forward name="gotoLogin" path="/WEB-INF/jsp/admin_login.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

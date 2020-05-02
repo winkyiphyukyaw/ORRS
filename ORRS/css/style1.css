@@ -1,0 +1,191 @@
+body{
+	margin:0;
+	padding:0;
+	/* font-family: 'OpenSans-Regular'; */
+ }
+ ul{
+margin:0;
+padding:0;
+}
+#logo{
+margin:0;
+padding:0;
+/* background-color: #366b82; */}
+
+
+#header {
+	/* background-color: #366b82; */ }
+#wrap	{
+	
+	width: 100%; /* Spans the width of the page */
+	height: 70px; 
+	padding:0px;
+	margin: 0; /* Ensures there is no space between sides of the screen and the menu */
+	/* z-index: 99; */ /* Makes sure that your menu remains on top of other page elements */
+	position: relative; 
+	background-color: #366b82;
+	
+	}
+	
+	
+	.navbar	{
+	float:center;
+	padding-right: 10%;
+  padding-left:5%;
+	height: 50px;
+   /*      padding: 0;
+	margin: 0; */
+	position: absolute;  /* Ensures that the menu doesnât affect other elements */
+	/* border-right: 1px solid #54879d; 
+	border-buttom:1px solid #54879d; */
+	}
+
+
+
+
+.navbar li 	{
+			height: auto;
+			width: 120px;  /* Each menu item is 150px wide */
+			float: left;  /* This lines up the menu items horizontally */
+			text-align: center;  /* All text is placed in the center of the box */
+			list-style: none;  /* Removes the default styling (bullets) for the list */
+			font: normal bold 12px/1.2em Arial, Verdana, Helvetica;  
+			padding: 0;
+			margin: 0;
+			background-color: #366b82;
+                        }
+
+
+
+
+	.navbar a	{							
+		padding: 18px 0;  /* Adds a padding on the top and bottom so the text appears centered vertically */
+		/* border-left: 1px solid #54879d; */ /* Creates a border in a slightly lighter shade of blue than the background.  Combined with the right border, this creates a nice effect. */
+		/* border-right: 1px solid #1f5065; */ /* Creates a border in a slightly darker shade of blue than the background.  Combined with the left border, this creates a nice effect. */
+		text-decoration: none;  /* Removes the default hyperlink styling. */
+		color: white; /* Text color is white */
+		display: block;
+		}
+
+
+		.navbar li ul 	{
+		display: none;  /* Hides the drop-down menu */
+		height: auto;									
+		margin: 0; /* Aligns drop-down box underneath the menu item */
+		padding: 0; /* Aligns drop-down box underneath the menu item */			
+		}				
+
+.navbar li:hover ul 	{
+background-color: #366b82;
+                        display: block; /* Displays the drop-down box when the menu item is hovered over */
+
+                        }
+
+
+.navbar a:hover		{
+text-decoration:none;
+background-color:#366b82;
+color: red;
+                        display: block; /* Displays the drop-down box when the menu item is hovered over */
+
+                        }
+
+
+
+
+
+
+		 .navbar li ul li {background-color: #366b82;} 
+
+
+		.navbar li ul li a 	{
+		/* border-left: 1px solid #1f5065; 
+		border-right: 1px solid #1f5065; 
+		border-top: 1px solid #74a3b7;  */
+		
+text-decoration:none;
+		}
+				
+.navbar li ul li a:hover	{background-color: #366b82;}
+
+
+		.glyphicon {
+  top: -8px;
+  display: block;
+}
+.glyphicon-asterisk,.glyphicon-flag{
+	color:#C7C7C7;
+  font-size:20px;
+}
+.glyphicon-icon {
+    position: relative;
+  top: 33px;
+  display: block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  z-index: 999;
+}
+
+.glyphicon-menu-right:before{
+	color:#333;
+	content: "\e258";
+}
+
+table.body {
+	align: center;
+	/* //border: 2px solid #086A87; */
+	/* min-width:80%; */
+	/* width:auto; */
+	
+	min-width:50%;
+	/* border: 1px solid #008080; */
+	
+}
+
+/* table.body {
+	align: center;
+	bordercolor:#086A87;
+	border:1px;
+} */
+
+table.body th {
+	/* margin: 5px;
+	padding: 5px; */
+	background-color:#366b82;
+	text-align:center;
+	color:white;
+	/* width:100px; */
+	height:40px;
+	/* border: 2px solid #0000a0; */
+	padding-left:5px;
+	border: 3px solid #5c8a8a; 
+}
+table.body td{
+/* width:10%; */	
+/* width:100px; */
+height:40px;
+padding-left:5px;
+border: 3px solid #5c8a8a;
+/* border-left: 2px solid #008080; */
+}
+/* table.body tr,td,th  {
+	
+	height:40px;
+	width:auto;
+	border: 2px solid #008080;
+} */
+
+table.body tr:nth-child(even) {
+	background-color:  #cfecec;
+}
+#buttonwto {
+	background-color: #366b82;
+	color: white;
+	border: 2px solid #086A87;
+	width: 100px;
+}

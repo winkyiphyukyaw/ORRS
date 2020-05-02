@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+    <!-- Form Bean Definitions -->
+	<form-beans>		
+		<!-- <form-bean name="XxxFormBean" type="com.ictti.frame.presentation.form.XxxForm"> </form-bean> --> 
+		<form-bean name="StoryFormBean" type="com.ictti.orrs.presentation.form.StoryForm"/>
+		<form-bean name="RegisterFormBean" type="com.ictti.orrs.presentation.form.AdminLoginForm"> </form-bean>
+		<form-bean name="DonorRegFormBean" type="com.ictti.orrs.presentation.form.DonorRegForm" />
+		<form-bean name="AnnualReportFormBean" type="com.ictti.orrs.presentation.form.AnnualReportForm"></form-bean>
+		<form-bean name="EventFormBean" type="com.ictti.orrs.presentation.form.EventForm"></form-bean>
+    	<form-bean name="AdopterFormBean" type="com.ictti.orrs.presentation.form.AdopterForm"> </form-bean>
+   		<form-bean name="ContactAboutFormBean" type="com.ictti.orrs.presentation.form.ContactAboutForm"> </form-bean> 
+    </form-beans>	
+    	
+    <!-- Action Mapping Definitions -->
+	<action-mappings>
+		<!-- <action path="/xxxPath" name="XxxFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				scope="session" validate="true"
+				input="/WEB-INF/jsp/xxxx.jsp">
+				<forward name="success1"
+					path="/WEB-INF/jsp/yyyy.jsp" />		
+				<forward name="sucess"
+					path="/WEB-INF/jsp/zzzz.jsp">
+				</forward>			
+		</action> -->
+		<!-- Donate Shelter-->
+		
+		<action path="/userStoryPath" name="StoryFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" 
+			scope="session"
+			validate="false">
+			<forward name="gotoUserStory" path="/WEB-INF/jsp/user_story.jsp"/>
+			
+			
+		</action>
+		<action path="/donorShelterFirstPath" name="DonorRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" 
+			scope="session"
+			validate="false"
+			input="/WEB-INF/jsp/Donor_Registration.jsp"
+			>
+			<forward name="gotoDonorReg" path="/WEB-INF/jsp/Donor_Registration.jsp"/>
+			
+			
+		</action>
+		<action path="/donorRegPath" name="DonorRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true"
+			input="/WEB-INF/jsp/Donor_Registration.jsp">
+			<forward name="gotoDonorReg" path="/WEB-INF/jsp/Donor_Registration.jsp"/>
+			<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp"/>
+			
+			
+		</action>
+		
+		
+		<!-- Donate Foundation -->
+		<action path="/donorDirectFirstPath" name="DonorRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" 
+			scope="session"
+			validate="false"
+			input="/WEB-INF/jsp/Donor_Direct_Registration.jsp"
+			>
+			<forward name="gotoDonorDirectReg" path="/WEB-INF/jsp/Donor_Direct_Registration.jsp"/>
+			
+			
+		</action>
+		<action path="/donorDirectRegPath" name="DonorRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true"
+			input="/WEB-INF/jsp/Donor_Direct_Registration.jsp">
+			<forward name="gotoDonorDirectReg" path="/WEB-INF/jsp/Donor_Direct_Registration.jsp"/>
+			<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp"/>
+			
+			
+		</action>
+		
+		<!-- Giving Meal -->
+		<action path="/givingMealFirstPath" 
+			name="DonorRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" 
+			scope="session"
+			validate="false">
+			<forward name="gotoGivingMealReg" path="/WEB-INF/jsp/GivingMeal_Registration.jsp"/>
+			
+			
+		</action>
+		<action path="/givingMealRegPath" name="DonorRegFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true"
+			input="/WEB-INF/jsp/GivingMeal_Registration.jsp"
+			cancellable="true">
+			<forward name="gotoShelter" path="/WEB-INF/jsp/Search_Shelter.jsp" />	
+			<forward name="gotoGivingMealReg" path="/WEB-INF/jsp/GivingMeal_Registration.jsp"/>
+			<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp"/>
+			
+			
+		</action>
+		
+		<!-- Search Shelter -->
+		<action 
+         		path="/shelterPath"
+         		name="DonorRegFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				scope="session" 
+				validate="false">
+				<forward name="gotoShelter" path="/WEB-INF/jsp/Search_Shelter.jsp" />		
+		</action>
+		
+		<action 
+         		path="/shelterDetailPath"
+         		name="DonorRegFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				scope="session" 
+				validate="false">
+				<forward name="gotoShelterDetail" path="/WEB-INF/jsp/shelter_search_detail.jsp" />		
+				<forward name="gotoShelter" path="/WEB-INF/jsp/Search_Shelter.jsp" />	
+				<forward name="gotoDonate" path="/WEB-INF/jsp/Donor_Registration.jsp" />
+				<forward name="gotoGivingMeal" path="/WEB-INF/jsp/GivingMeal_Registration.jsp" />		
+		</action>
+		
+		<!-- Annual Report -->
+		<action path="/annualReportPath" 
+				name="AnnualReportFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" >
+			<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp" />
+			<forward name="gotoAnnualReport" path="/WEB-INF/jsp/annual_report.jsp" />
+		</action>
+		
+		
+		<action path="/AnnualViewPath" 
+				name="AnnualReportFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy" 
+				scope="session"
+				validate="false" >
+			<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp" />
+			<forward name="gotoAnnualReport" path="/WEB-INF/jsp/annual_report.jsp" />
+		</action>
+		<action path="/EventPath" name="EventFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				scope="session"
+				validate="false">
+				<forward name="gotoEvent"
+					path="/WEB-INF/jsp/user_event.jsp" />		
+							
+		</action>
+		
+		<action path="/adopterFirstPath" name="AdopterFormBean"
+				type="org.springframework.web.struts.DelegatingActionProxy"
+				scope="session"
+				validate="false">
+				<forward name="gotoAdopt"
+					path="/WEB-INF/jsp/adopter_registration.jsp" />		
+					<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp" />		
+		</action>
+		<action path="/adopterRegPath" name="AdopterFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="true" input="/WEB-INF/jsp/adopter_registration.jsp" cancellable="true">
+			<forward name="gotoSave" path="/WEB-INF/jsp/adopter_registration.jsp" />
+			<forward name="gotoAdopt" path="/WEB-INF/jsp/adopter_registration.jsp" />
+			<forward name="gotoHome" path="/WEB-INF/jsp/UserHome.jsp" />
+		</action>
+		
+		<!-- Contact Page -->
+		<action path="/ContactPath" 
+				name="ContactAboutFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" >
+			<forward name="gotoContact" path="/WEB-INF/jsp/Contact.jsp" />
+			<!-- <forward name="gotoAnnualReport" path="/WEB-INF/jsp/annual_report.jsp" /> -->
+		</action>
+		<!-- About Page -->
+		<action path="/AboutPath" 
+				name="ContactAboutFormBean"
+			type="org.springframework.web.struts.DelegatingActionProxy" scope="session"
+			validate="false" >
+			<forward name="gotoAbout" path="/WEB-INF/jsp/About.jsp" />
+			<!-- <forward name="gotoAnnualReport" path="/WEB-INF/jsp/annual_report.jsp" /> -->
+		</action>
+	</action-mappings>
+</struts-config>

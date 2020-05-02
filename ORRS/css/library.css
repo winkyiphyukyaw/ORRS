@@ -1,0 +1,72 @@
+h1 { color: #660000;
+background-color:#ddfdb3;
+text-align:center;
+}
+h2{ color: #660000;
+background-color:#ddfdb3;
+text-align:center;
+}
+h3 { color: #AC0087;
+background-color:#f1fed3;
+text-align:center;
+}
+dt{
+	font-size:larger;
+	font-family: "Bookman Old Style";
+	color: #AC0087;
+	text-align: left;
+}
+dd{
+	color: #AC0087;
+	font-family: "Bookman Old Style";
+    background-color: #f1fed3;
+	text-align: justify;
+}
+td{
+	color: #AC0087;
+    background-color:#f1fed3;
+   }
+.bea-portal-body {
+background-color: white;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+margin:0;
+padding:0;
+}
+.bea-portal-body-content {
+background-color:  #f1fed3;
+}
+#menu {
+margin: 0;
+padding: 0;
+list-style:none;
+background-color:#f1fed3;
+}
+#menu li {
+border: 2px solid gray;
+margin: 5px;
+}
+#menu a {
+display: block; 
+width: 150px;
+text-align: center;
+text-decoration: none;
+background-color: #f1fed3;
+}
+#menu a:hover {
+	background-color: #AC0087;	
+	text-decoration : underline;
+}
+form {
+	background-color:  #f1fed3;
+}
+label{
+	color: #660000;
+	font-family:Verdana,Arial,Helvetica,sans-serif,bold;
+	font-size: medium;	
+	}
+textarea{
+ text-align: justify;
+ 
+   }
+  
+

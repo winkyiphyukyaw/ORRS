@@ -1,0 +1,19 @@
+
+
+
+Dear $name,                                                    $today
+
+Here is the information about the orphan whose gender is $Gender and whose age is $Age in your application form.
+  
+
+
+Detail Information About the Orphan
+
+#foreach($orphan in $oList)
+Orphan Name is $orphan.orphanName. 
+Shelter Name is $orphan.shelter.shelterName.
+Shelter Address is $orphan.shelter.shelterLocation.
+#end
+
+															Best Regards,
+																ORRS

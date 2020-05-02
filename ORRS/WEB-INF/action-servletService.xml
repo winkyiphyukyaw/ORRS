@@ -1,0 +1,275 @@
+ <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	http://www.directwebremoting.org/schema/spring-dwr 
+	http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+	<!-- <bean id="idXxxService"    
+                class="com.ictti.frame.business.service.XxxService">
+		<property name="myXxxDao" ref="idXxxDao" />
+	</bean> -->
+	
+	
+	
+	<!-- Donate -->
+	<bean id="idDonorRegService"    
+                class="com.ictti.orrs.business.service.DonorRegService">
+		<property name="myDonor" ref="idDonorDao" />
+		<property name="myShelterDao" ref="idShelterDao" />
+		<property name="myCategoryDao" ref="idCategoryDao" />
+		<property name="myDonorShelterDao" ref="idDonorShelterDao" />
+		<property name="myDonorCategoryDao" ref="idDonorCategoryDao" />
+		<property name="myYearlyFoundationDao" ref="idYearlyFoundationDao" />
+		<property name="myYearlyShelterDao" ref="idYearlyShelterDao" />
+		
+		
+		
+		<dwr:remote javascript="AjaxBooksSearch">
+		 <dwr:include method="getAllShelterName"/>
+		 <dwr:include method="getAmountByShelterName"/>
+		</dwr:remote>
+	</bean>
+	
+	<!-- Shelter -->
+	<bean id="idSearchService"  class="com.ictti.orrs.business.service.SearchShelterService">
+		<property name="myShelterDao" ref="idShelterDao"></property>
+		<property name="myRegionDao" ref="idRegionStateDao" />
+		<property name="myCityDao" ref="idCityDao" />
+		<dwr:remote javascript="AjaxSearch">
+			<dwr:include method="getShelterByRegion"></dwr:include>
+			<!-- <dwr:include method="findShelterByLikeFromService"></dwr:include> -->
+			<dwr:include method="getShelterByCity"></dwr:include>
+			<dwr:include method="getCityByRegion"></dwr:include>
+			<!-- <dwr:include method="SheltergetByRegion"></dwr:include> -->
+		</dwr:remote>
+	</bean>
+	<!-- Annual Report -->
+	<bean id="idAnnualReportService"  class="com.ictti.orrs.business.service.AnnualReportService">
+		<property name="myAnnualReportTableDao" ref="idAnnualReportTableDao" />
+		<property name="myAllYearTableDao" ref="idAllYearTableDao" />
+		
+		
+	</bean>
+	<dwr:configuration>
+		<!-- Donate -->
+		<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.Shelter" javascript="Shelter"></dwr:convert>
+		<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.YearlyShelterTable" javascript="Shelter"></dwr:convert>
+		<!-- Shelter -->
+		<dwr:convert type="bean" 
+			class="com.ictti.orrs.business.entity.RegionState" javascript="region"></dwr:convert>
+		<dwr:convert type="bean" 
+			class="com.ictti.orrs.business.entity.City" javascript="message"></dwr:convert>
+			
+		<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.City" javascript="subcat"></dwr:convert>
+			
+			<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.DonorCategory" javascript="donorCategory"></dwr:convert>
+			<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.Donor" javascript="donor"></dwr:convert>
+			<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.Category" javascript="donor"></dwr:convert>
+			
+			
+			
+			<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.DonorShelter" javascript="donorShelter"></dwr:convert>
+	</dwr:configuration>
+	<dwr:controller id="dwrController" debug="true"></dwr:controller>
+	
+	
+	<bean id="idEventService"  class="com.ictti.orrs.business.service.EventService">
+		<property name="myEventDao" ref="idEventDao" />	
+		<property name="myEventImageDao" ref="idEventImageDao" />
+	</bean>
+	<bean id="idStoryService"  class="com.ictti.orrs.business.service.StoryService">
+		<property name="myEventDao" ref="idEventDao" />
+		<property name="myEventImageDao" ref="idEventImageDao" />
+	</bean>
+	 <bean id="idAdoptService" class="com.ictti.orrs.business.service.AdoptService">
+		 <property name="myAdoptDao" ref="idAdoptDao"/>
+  			<property name="myAdopterImageDao" ref="idAdopterImageDao"/>
+  			<property name="myShelterDao" ref="idShelterDao"></property>
+		<property name="myRegionDao" ref="idRegionStateDao" />
+		<property name="myCityDao" ref="idCityDao" />
+		<dwr:remote javascript="AjaxSearch">
+			<dwr:include method="getShelterByRegion"></dwr:include>
+			<!-- <dwr:include method="findShelterByLikeFromService"></dwr:include> -->
+			<dwr:include method="getShelterByCity"></dwr:include>
+			<dwr:include method="getCityByRegion"></dwr:include>
+			<!-- <dwr:include method="SheltergetByRegion"></dwr:include> -->
+		</dwr:remote>
+  	</bean>
+  	<bean id="idShelterService"  class="com.ictti.orrs.business.service.ShelterService">
+		<property name="myShelterDao" ref="idShelterDao" />
+		<property name="myRegionStateDao" ref="idRegionStateDao" />
+		<property name="mySubCityDao" ref="idCityDao"/>
+		
+		<dwr:remote javascript="AjaxSearchSubcategory">
+		<dwr:include method="getBySubcity" />
+		</dwr:remote>
+		
+	</bean>
+	
+	
+	
+    
+	<!-- Insert Orphan and update -->
+	<bean id="idOrphanService" class="com.ictti.orrs.business.service.ShelterOrphanService">
+		<property name="myOrphanDao" ref="idOrphanDao" />
+		<property name="myShelterDao" ref="idShelterDao" />
+		<property name="myAdopterDao" ref="idAdoptDao" />
+	</bean>
+	
+	
+	
+	<!-- View Adopter List -->
+	
+	<bean id="idAdopterSearchService"    
+                class="com.ictti.orrs.business.service.ShelterAdopterSearchService">
+		<property name="myAdopterDao" ref="idAdopterDao" />
+		<property name="myOrphanDao" ref="idOrphanDao" />
+	</bean>
+	
+	<!-- Upload Event -->
+	
+	<bean id="idShelterUploadEventService" class="com.ictti.orrs.business.service.ShelterEventService">
+		 <property name="myShelterEventDao" ref="idEventDao"/>
+  			<property name="myShelterEventImageDao" ref="idEventImageDao"/>
+  			<property name="myShelterDao" ref="idShelterDao"/>
+  	</bean>
+  	<bean id="idShelterEventService" class="com.ictti.orrs.business.service.ShelterViewEventService">
+		 <property name="myEventDao" ref="idEventDao"/>
+  			<property name="myEventImageDao" ref="idEventImageDao"/>
+  	</bean> 
+  	
+  	<!-- Shelter Report Service  -->
+  	<bean id="idShelterReportService"  class="com.ictti.orrs.business.service.ShelterReportService">
+		<property name="myShelterReportTableDao" ref="idShelterReportTableDao" />
+		
+		<property name="myCategoryDao" ref="idCategoryDao" />
+		
+	</bean>
+	
+	<!-- shelter donor -->
+	<bean id="idViewDonorListService"    
+                class="com.ictti.orrs.business.service.ShelterDonorListService">
+		<property name="myDonorDao" ref="idDonorDao" />
+		<property name="myDonorCategoryDao" ref="idDonorCategoryDao" />
+		<property name="myDonorShelterDao" ref="idDonorShelterDao"></property>
+		<dwr:remote javascript="AjaxDonorNameSearch">
+		<dwr:include method="getAllDonorByShelterName"/></dwr:remote>
+	</bean>
+	
+	
+	<!-- Admin -->
+	<!-- login -->
+	<bean id="idAdminService" class="com.ictti.orrs.business.service.AdminService">
+		<property name="myAdminDao" ref="idAdminDao" />
+	</bean>
+	
+	
+	<bean id="idAdminReportService" class="com.ictti.orrs.business.service.AdminReportService">
+		<property name="myCategoryDao" ref="idCategoryDao" />
+		<property name="myAdminReportDao" ref="idAdminReportDao" />
+		
+	</bean>
+	
+	
+	<!-- admin donor view -->
+	<bean id="idAdminDonorService" class="com.ictti.orrs.business.service.AdminDonorService">
+		<property name="myDonorDao" ref="idDonorDao" />
+		<property name="myDonorCategoryDao" ref="idDonorCategoryDao" />
+		<dwr:remote javascript="AjaxDonorSearch">
+		<dwr:include method="getAllDonorName"/>
+		</dwr:remote>
+	</bean>
+	
+	
+	<!-- Add City -->
+	<bean id="idLocationService" class="com.ictti.orrs.business.service.AdminLocationService">
+		<property name="myRegionStateDao" ref="idRegionStateDao"></property>
+		<property name="myCityDao" ref="idCityDao"></property>
+		<dwr:remote javascript="AjaxSearchSubcity">
+		<dwr:include method="getBySubcity"/>
+		</dwr:remote>
+	</bean>
+	<dwr:configuration>
+		<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.City" javascript="city"></dwr:convert>
+	</dwr:configuration>
+	<dwr:configuration>
+		<dwr:convert type="bean"
+			class="com.ictti.orrs.business.entity.Adopter" javascript="adopter"></dwr:convert>
+	</dwr:configuration>
+	
+	<!-- For Admin Calculation -->
+	<bean id="idFinancialService"
+		  class="com.ictti.orrs.business.service.FinancialService">
+		
+		  <property name="myCategoryDao" ref="idCategoryDao"></property>
+		  <property name="myFinancialCalDao" ref="idFinancialCalculateDao"></property>
+		  <property name="myAnuualReportDao" ref="idAnnualReportTableDao"></property>
+    </bean>	
+
+	
+	
+    
+    <!-- Admin View Orphan -->
+	
+	
+ <!-- Admin View Orphan -->
+    
+	
+	<bean id="idOrphanViewService"    
+                class="com.ictti.orrs.business.service.AdminViewOrphanService">
+		<property name="myOrphanDao" ref="idOrphanDao" />
+		<property name="myAdopterDao" ref="idAdoptDao" />
+		<property name="myShelterDao" ref="idShelterDao" />
+		
+		<dwr:remote javascript="AjaxShelterNameSearch">
+		<dwr:include method="findShelterNameByLikeFromService"/>
+		</dwr:remote>
+		
+	</bean>
+	
+	<!-- Admin View Profile -->
+	<bean id="idAdminViewService"    
+                class="com.ictti.orrs.business.service.AdminViewService">
+		<property name="myAdminDao" ref="idAdminDao" />
+	</bean>
+	
+	<!-- Upload Event -->
+	<bean id="idAdminUploadEventService" class="com.ictti.orrs.business.service.AdminEventService">
+		<property name="myAdminEventDao" ref="idEventDao" />
+		<property name="myAdminEventImgDao" ref="idEventImageDao" />
+		
+	</bean>
+	<bean id="idAdminViewEventService" class="com.ictti.orrs.business.service.AdminEventService">
+		<property name="myAdminEventDao" ref="idEventDao" />
+		<property name="myAdminEventImgDao" ref="idEventImageDao" />
+	</bean>	
+	
+	
+	<!-- 	Admin Adopter View -->
+
+	<bean id="idAdopterViewService"    
+                class="com.ictti.orrs.business.service.AdopterViewService">
+		<property name="myAdopterDao" ref="idAdopterDao" />
+		<property name="myOrphanDao" ref="idOrphanDao" />
+		<property name="myShelterDao" ref="idShelterDao" />
+		<dwr:remote javascript="AjaxAdopterSearch">
+		<dwr:include method="findAdopterByLikeFromService"/>
+		</dwr:remote>
+		
+		
+	</bean>
+	
+	<!--Admin Category  -->
+	<bean id="idCategoryService"    
+                class="com.ictti.orrs.business.service.CategoryService">
+		<property name="myCategoryDao" ref="idCategoryDao" />
+	</bean>
+	</beans>
